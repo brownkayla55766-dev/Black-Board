@@ -1,0 +1,2106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Portal</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f4f4;
+  color: #222;
+}
+
+/* LOGIN */
+
+.login {
+  min-height: 100vh;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 390px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px #0008;
+}
+
+.login-head {
+  background: #111;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  border-bottom: 6px solid #f5c400;
+}
+
+.login-head h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.login-head p {
+  margin: 0;
+  color: #ddd;
+}
+
+.login-form {
+  padding: 28px;
+}
+
+.login-form label {
+  display: block;
+  font-weight: bold;
+  margin: 14px 0 6px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+.login-btn {
+  width: 100%;
+  margin-top: 22px;
+  padding: 14px;
+  border: 0;
+  border-radius: 5px;
+  background: #f5c400;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-note {
+  font-size: 12px;
+  color: #777;
+  text-align: center;
+  margin-top: 16px;
+}
+
+/* APP */
+
+.app {
+  display: none;
+  min-height: 100vh;
+}
+
+.top {
+  height: 65px;
+  background: #111;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 5px solid #f5c400;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.top-spacer {
+  flex: 1;
+}
+
+.user {
+  font-size: 14px;
+}
+
+/* MENU BAR */
+
+.menu-bar {
+  background: white;
+  border-bottom: 1px solid #d5d5d5;
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0 10px;
+  box-shadow: 0 2px 5px #00000012;
+}
+
+.menu-bar button {
+  border: 0;
+  background: white;
+  color: #222;
+  padding: 16px 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom: 4px solid transparent;
+}
+
+.menu-bar button:hover,
+.menu-bar button.active {
+  background: #fffbea;
+  border-bottom-color: #f5c400;
+}
+
+/* MAIN */
+
+.main {
+  padding: 25px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.page-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page-title h1 {
+  margin: 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  padding: 18px;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.big {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* COURSES */
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.course {
+  background: white;
+  border: 1px solid #ddd;
+  border-top: 6px solid #f5c400;
+  border-radius: 7px;
+  padding: 20px;
+  cursor: pointer;
+  transition: .15s;
+}
+
+.course:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px #00000015;
+}
+
+.course h2 {
+  margin: 0 0 7px;
+}
+
+.course p {
+  color: #666;
+}
+
+.grade {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+/* TABLES */
+
+.table-wrap {
+  overflow-x: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 650px;
+}
+
+th,
+td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+th {
+  background: #111;
+  color: white;
+}
+
+tr.clickable {
+  cursor: pointer;
+}
+
+tr.clickable:hover {
+  background: #fffbea;
+}
+
+/* COURSE TABS */
+
+.tabs {
+  display: flex;
+  gap: 3px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 18px;
+  overflow-x: auto;
+}
+
+.tab {
+  border: 0;
+  background: #eee;
+  padding: 12px 17px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab.active {
+  background: #f5c400;
+  font-weight: bold;
+}
+
+/* PANELS */
+
+.panel {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.notice {
+  background: #fffbea;
+  border-left: 5px solid #f5c400;
+  padding: 15px;
+  margin-bottom: 18px;
+}
+
+.list-item {
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.list-item:last-child {
+  border-bottom: 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 15px;
+  background: #e8f6e8;
+  color: #246b24;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.back {
+  border: 0;
+  background: #111;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.message {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  padding: 17px;
+  margin-bottom: 12px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px) {
+
+  .top {
+    height: 60px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .user {
+    display: none;
+  }
+
+  .menu-bar button {
+    padding: 13px 14px;
+    font-size: 13px;
+  }
+
+  .main {
+    padding: 16px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+
+<div id="login" class="login">
+
+  <div class="login-box">
+
+    <div class="login-head">
+      <h1>Student Portal</h1>
+      <p>Sign in to continue</p>
+    </div>
+
+    <form class="login-form" onsubmit="login(event)">
+
+      <label>Username</label>
+
+      <input
+        id="username"
+        type="text"
+        placeholder="Username"
+        required
+      >
+
+      <label>Password</label>
+
+      <input
+        id="password"
+        type="password"
+        placeholder="Password"
+        required
+      >
+
+      <button class="login-btn" type="submit">
+        Sign In
+      </button>
+
+      <div class="login-note">
+        Enter any username and password to continue.
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- APP -->
+
+<div id="app" class="app">
+
+<header class="top">
+
+  <div class="logo">
+    BLACKBOARD
+  </div>
+
+  <div class="top-spacer"></div>
+
+  <div class="user">
+    Student Account
+  </div>
+
+</header>
+
+
+<!-- MAIN MENU -->
+
+<nav class="menu-bar">
+
+  <button
+    onclick="showPage('dashboard')"
+    id="nav-dashboard">
+    Dashboard
+  </button>
+
+  <button
+    onclick="showPage('courses')"
+    id="nav-courses">
+    Courses
+  </button>
+
+  <button
+    onclick="showPage('assignments')"
+    id="nav-assignments">
+    Assignments
+  </button>
+
+  <button
+    onclick="showPage('grades')"
+    id="nav-grades">
+    Grades
+  </button>
+
+  <button
+    onclick="showPage('calendar')"
+    id="nav-calendar">
+    Calendar
+  </button>
+
+  <button
+    onclick="showPage('messages')"
+    id="nav-messages">
+    Messages
+  </button>
+
+  <button
+    onclick="showPage('discussions')"
+    id="nav-discussions">
+    Discussions
+  </button>
+
+  <button
+    onclick="showPage('profile')"
+    id="nav-profile">
+    Profile
+  </button>
+
+</nav>
+
+
+<main id="main" class="main"></main>
+
+</div>
+
+
+<script>
+
+/* =========================
+   COURSE DATA
+========================= */
+
+const courses = [
+
+  {
+    id: "engl",
+    code: "ENGL 1102",
+    name: "English Composition II",
+    grade: 92.4,
+
+    assignments: [
+
+      ["Narrative Writing Workshop", 88.0, "Sep 7"],
+
+      ["Rhetorical Analysis", 94.5, "Sep 14"],
+
+      ["Source Evaluation Exercise", 91.0, "Sep 21"],
+
+      ["Argument Essay Draft", 96.0, "Sep 25"],
+
+      ["Citation Practice", 89.5, "Sep 28"],
+
+      ["Research Proposal", 93.0, "Oct 2"],
+
+      ["Literary Analysis", 95.5, "Oct 5"],
+
+      ["English Composition II Midterm", 92.0, "Oct 11"],
+
+      ["Peer Review Portfolio", 97.0, "Oct 16"],
+
+      ["Research Paper", 94.0, "Oct 11"]
+
+    ]
+  },
+
+
+  {
+    id: "math",
+    code: "MATH 1411",
+    name: "College Algebra",
+    grade: 87.8,
+
+    assignments: [
+
+      ["Linear Equations Quiz", 84.0, "Sep 6"],
+
+      ["Functions Homework", 91.0, "Sep 12"],
+
+      ["Polynomial Practice", 86.5, "Sep 18"],
+
+      ["Quadratic Equations Quiz", 90.0, "Sep 23"],
+
+      ["Graphing Functions", 83.5, "Sep 27"],
+
+      ["Exponential Functions", 89.0, "Oct 1"],
+
+      ["Systems of Equations", 92.0, "Oct 5"],
+
+      ["Math 1411 Midterm", 88.0, "Oct 11"],
+
+      ["Inequality Review", 94.0, "Oct 15"],
+
+      ["Algebra Problem Set", 87.5, "Oct 18"]
+
+    ]
+  },
+
+
+  {
+    id: "psych",
+    code: "PSYC 2112",
+    name: "Psychology II",
+    grade: 90.0,
+
+    assignments: [
+
+      ["Learning & Conditioning Quiz", 91.0, "Sep 6"],
+
+      ["Memory Reflection", 88.5, "Sep 12"],
+
+      ["Development Study", 93.0, "Sep 18"],
+
+      ["Personality Worksheet", 90.0, "Sep 22"],
+
+      ["Social Psychology Quiz", 86.0, "Sep 27"],
+
+      ["Emotion Discussion", 95.0, "Oct 1"],
+
+      ["Psychological Disorders Review", 92.5, "Oct 5"],
+
+      ["Psychology II Midterm", 89.0, "Oct 11"],
+
+      ["Research Methods Assignment", 94.0, "Oct 16"],
+
+      ["Final Review Journal", 96.0, "Oct 20"]
+
+    ]
+  },
+
+
+  {
+    id: "gov",
+    code: "POLS 1101",
+    name: "American Government",
+    grade: 92.4,
+
+    assignments: [
+
+      ["Constitution Study Guide", 94.0, "Sep 6"],
+
+      ["Federalism Quiz", 89.0, "Sep 12"],
+
+      ["Civil Liberties Worksheet", 96.0, "Sep 18"],
+
+      ["Congress Research", 91.5, "Sep 23"],
+
+      ["Presidential Powers Quiz", 88.0, "Sep 27"],
+
+      ["Supreme Court Case Brief", 95.0, "Oct 1"],
+
+      ["Voting & Elections Review", 93.0, "Oct 5"],
+
+      ["American Government Midterm", 92.0, "Oct 11"],
+
+      ["Political Parties Discussion", 90.0, "Oct 16"],
+
+      ["Public Policy Analysis", 97.0, "Oct 20"]
+
+    ]
+  }
+
+];
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function login(event) {
+
+  event.preventDefault();
+
+  document.getElementById("login").style.display = "none";
+
+  document.getElementById("app").style.display = "block";
+
+  showPage("dashboard");
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function setActive(page) {
+
+  document
+    .querySelectorAll(".menu-bar button")
+    .forEach(button => {
+      button.classList.remove("active");
+    });
+
+  const button =
+    document.getElementById("nav-" + page);
+
+  if (button) {
+    button.classList.add("active");
+  }
+}
+
+
+function showPage(page) {
+
+  setActive(page);
+
+  const main =
+    document.getElementById("main");
+
+
+  if (page === "dashboard") {
+
+    main.innerHTML =
+      dashboardPage();
+
+  }
+
+
+  if (page === "courses") {
+
+    main.innerHTML =
+      coursesPage();
+
+  }
+
+
+  if (page === "assignments") {
+
+    main.innerHTML =
+      assignmentsPage();
+
+  }
+
+
+  if (page === "grades") {
+
+    main.innerHTML =
+      gradesPage();
+
+  }
+
+
+  if (page === "calendar") {
+
+    main.innerHTML =
+      calendarPage();
+
+  }
+
+
+  if (page === "messages") {
+
+    main.innerHTML =
+      messagesPage();
+
+  }
+
+
+  if (page === "discussions") {
+
+    main.innerHTML =
+      discussionsPage();
+
+  }
+
+
+  if (page === "profile") {
+
+    main.innerHTML =
+      profilePage();
+
+  }
+
+  window.scrollTo(0,0);
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+function dashboardPage() {
+
+  return `
+
+  <div class="page-title">
+
+    <h1>Dashboard</h1>
+
+    <span>Fall Semester</span>
+
+  </div>
+
+
+  <div class="notice">
+
+    <b>Welcome back!</b>
+
+    You have 5 assignments due Sunday,
+    October 11.
+
+  </div>
+
+
+  <div class="cards">
+
+    <div class="card">
+
+      <h3>COURSES</h3>
+
+      <div class="big">
+        4
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>ASSIGNMENTS</h3>
+
+      <div class="big">
+        5
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>MESSAGES</h3>
+
+      <div class="big">
+        3
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>OVERALL</h3>
+
+      <div class="big">
+        90.7%
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <h2>My Courses</h2>
+
+  <div class="course-grid">
+
+    ${courses.map(courseCard).join("")}
+
+  </div>
+
+
+  <h2 style="margin-top:30px">
+    Upcoming Assignments
+  </h2>
+
+
+  <div class="table-wrap">
+
+    <table>
+
+      <tr>
+
+        <th>Assignment</th>
+
+        <th>Course</th>
+
+        <th>Due</th>
+
+      </tr>
+
+
+      ${upcomingAssignments().map(item => `
+
+        <tr
+          class="clickable"
+          onclick="openAssignment(
+            '${item.course.id}',
+            ${item.index}
+          )"
+        >
+
+          <td>
+            <b>
+              ${item.assignment[0]}
+            </b>
+          </td>
+
+          <td>
+            ${item.course.code}
+          </td>
+
+          <td>
+            Sunday, October 11
+          </td>
+
+        </tr>
+
+      `).join("")}
+
+    </table>
+
+  </div>
+
+  `;
+
+}
+
+
+/* =========================
+   COURSE CARD
+========================= */
+
+function courseCard(course) {
+
+  return `
+
+  <div
+    class="course"
+    onclick="showCourse('${course.id}')"
+  >
+
+    <h2>
+      ${course.code}
+    </h2>
+
+    <p>
+      ${course.name}
+    </p>
+
+    <div class="grade">
+      ${course.grade.toFixed(1)}%
+    </div>
+
+    <p>
+      Current Grade
+    </p>
+
+  </div>
+
+  `;
+
+}
+
+
+/* =========================
+   COURSES PAGE
+========================= */
+
+function coursesPage() {
+
+  return `
+
+  <div class="page-title">
+
+    <h1>Courses</h1>
+
+  </div>
+
+
+  <div class="course-grid">
+
+    ${courses.map(courseCard).join("")}
+
+  </div>
+
+  `;
+
+}
+
+
+/* =========================
+   ASSIGNMENTS
+========================= */
+
+function upcomingAssignments() {
+
+  const names = [
+
+    "English Composition II Midterm",
+
+    "Math 1411 Midterm",
+
+    "Psychology II Midterm",
+
+    "American Government Midterm",
+
+    "Research Paper"
+
+  ];
+
+
+  const result = [];
+
+
+  courses.forEach(course => {
+
+    course.assignments.forEach((assignment,index) => {
+
+      if (names.includes(assignment[0])) {
+
+        result.push({
+
+          course: course,
+
+          assignment: assignment,
+
+          index: index
+
+        });
+
+      }
+
+    });
+
+  });
+
+
+  return result;
+
+}
+
+
+function assignmentsPage() {
+
+  const allAssignments = [];
+
+
+  courses.forEach(course => {
+
+    course.assignments.forEach((assignment,index) => {
+
+      allAssignments.push({
+
+        course: course,
+
+        assignment: assignment,
+
+        index: index
+
+      });
+
+    });
+
+  });
+
+
+  return `
+
+  <div class="page-title">
+
+    <h1>Assignments</h1>
+
+    <span>All Courses</span>
+
+  </div>
+
+
+  <div class="notice">
+
+    <b>Upcoming:</b>
+
+    Five assignments are due Sunday,
+    October 11.
+
+  </div>
+
+
+  <div class="table-wrap">
+
+    <table>
+
+      <tr>
+
+        <th>Assignment</th>
+
+        <th>Course</th>
+
+        <th>Due</th>
+
+        <th>Grade</th>
+
+      </tr>
+
+
+      ${allAssignments.map(item => `
+
+        <tr
+          class="clickable"
+          onclick="openAssignment(
+            '${item.course.id}',
+            ${item.index}
+          )"
+        >
+
+          <td>
+
+            <b>
+              ${item.assignment[0]}
+            </b>
+
+          </td>
+
+          <td>
+            ${item.course.code}
+          </td>
+
+          <td>
+            ${item.assignment[2]}
+          </td>
+
+          <td>
+            ${item.assignment[1].toFixed(1)}%
+          </td>
+
+        </tr>
+
+      `).join("")}
+
+    </table>
+
+  </div>
+
+  `;
+
+}
+
+
+/* =========================
+   GRADES
+========================= */
+
+function gradesPage() {
+
+  return `
+
+  <div class="page-title">
+
+    <h1>Grades</h1>
+
+  </div>
+
+
+  <div class="table-wrap">
+
+    <table>
+
+      <tr>
+
+        <th>Course</th>
+
+        <th>Current Grade</th>
+
+        <th>Assignments</th>
+
+        <th>Status</th>
+
+      </tr>
+
+
+      ${courses.map(course => `
+
+        <tr
+          class="clickable"
+          onclick="showCourse('${course.id}')"
+        >
+
+          <td>
+
+            <b>
+              ${course.code}
+            </b>
+
+            <br>
+
+            ${course.name}
+
+          </td>
+
+          <td>
+
+            <b>
+              ${course.grade.toFixed(1)}%
+            </b>
+
+          </td>
+
+          <td>
+            ${course.assignments.length}
+          </td>
+
+          <td>
+
+            <span class="badge">
+              In Progress
+            </span>
+
+          </td>
+
+        </tr>
+
+      `).join("")}
+
+    </table>
+
+  </div>
+
+  `;
+
+}
+
+
+/* =========================
+   CALENDAR
+========================= */
+
+function calendarPage() {
+
+  return `
+
+  <div class="page-title">
+
+    <h1>Calendar</h1>
+
+  </div>
+
+
+  <div class="panel">
+
+    <h2>
+      Sunday, October 11
+    </h2>
+
+
+    ${upcomingAssignments().map(item => `
+
+      <div
+        class="list-item"
+        onclick="openAssignment(
+          '${item.course.id}',
+          ${item.index}
+        )"
+        style="cursor:pointer"
+      >
+
+        <b>
+          ${item.assignment[0]}
+        </b>
+
+        <br>
+
+        ${item.course.code}
+
+        <br>
+
+        Due 11:59 PM
+
+      </div>
+
+    `).join("")}
+
+  </div>
+
+  `;
+
+}
+
+
+/* =========================
+   MESSAGES
+========================= */
+
+function messagesPage() {
+
+  return `
+
+  <div class="page-title">
+
+    <h1>Messages</h1>
+
+  </div>
+
+
+  <div class="message">
+
+    <b>
+      Professor Johnson
+    </b>
+
+    <br><br>
+
+    Remember to review the midterm
+    study guide before Sunday.
+
+  </div>
+
+
+  <div class="message">
+
+    <b>
+      Professor Williams
+    </b>
+
+    <br><br>
+
+    Your recent assignment has been
+    graded. Check the Grades section.
+
+  </div>
+
+
+  <div class="message">
+
+    <b>
+      Student Services
+    </b>
+
+    <br><br>
+
+    Your academic calendar has
+    been updated.
+
+  </div>
+
+  `;
+
+}
+
+
+/* =========================
+   DISCUSSIONS
+========================= */
+
+function discussionsPage() {
+
+  return `
+
+  <div class="page-title">
+
+    <h1>Discussions</h1>
+
+  </div>
+
+
+  <div class="panel">
+
+    <h3>
+      Midterm Study Group
+    </h3>
+
+    <p>
+      Students are sharing study tips
+      and reviewing upcoming exams.
+    </p>
+
+    <b>
+      18 replies
+    </b>
+
+  </div>
+
+
+  <div class="panel">
+
+    <h3>
+      Research Paper Topics
+    </h3>
+
+    <p>
+      Discuss possible topics and
+      research sources with classmates.
+    </p>
+
+    <b>
+      12 replies
+    </b>
+
+  </div>
+
+
+  <div class="panel">
+
+    <h3>
+      Government & Civic Participation
+    </h3>
+
+    <p>
+      Weekly discussion about
+      American government concepts.
+    </p>
+
+    <b>
+      9 replies
+    </b>
+
+  </div>
+
+  `;
+
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+function profilePage() {
+
+  return `
+
+  <div class="page-title">
+
+    <h1>Profile</h1>
+
+  </div>
+
+
+  <div class="panel">
+
+    <h2>
+      Student Profile
+    </h2>
+
+    <p>
+      <b>Name:</b>
+      Student Account
+    </p>
+
+    <p>
+      <b>Program:</b>
+      General Studies
+    </p>
+
+    <p>
+      <b>Term:</b>
+      Fall Semester
+    </p>
+
+    <p>
+      <b>Status:</b>
+      Enrolled
+    </p>
+
+  </div>
+
+  `;
+
+}
+
+
+/* =========================
+   COURSE PAGE
+========================= */
+
+function showCourse(id) {
+
+  const course =
+    courses.find(c => c.id === id);
+
+
+  document.getElementById("main").innerHTML = `
+
+  <button
+    class="back"
+    onclick="showPage('courses')"
+  >
+    ← Back to Courses
+  </button>
+
+
+  <div class="page-title"
+       style="margin-top:18px">
+
+    <div>
+
+      <h1>
+        ${course.code}
+      </h1>
+
+      <p>
+        ${course.name}
+      </p>
+
+    </div>
+
+
+    <div class="big">
+
+      ${course.grade.toFixed(1)}%
+
+    </div>
+
+  </div>
+
+
+  <div class="tabs">
+
+    <button
+      class="tab active"
+      onclick="courseTab(
+        '${course.id}',
+        'home',
+        this
+      )"
+    >
+      Home
+    </button>
+
+
+    <button
+      class="tab"
+      onclick="courseTab(
+        '${course.id}',
+        'assignments',
+        this
+      )"
+    >
+      Assignments
+    </button>
+
+
+    <button
+      class="tab"
+      onclick="courseTab(
+        '${course.id}',
+        'grades',
+        this
+      )"
+    >
+      Grades
+    </button>
+
+
+    <button
+      class="tab"
+      onclick="courseTab(
+        '${course.id}',
+        'materials',
+        this
+      )"
+    >
+      Materials
+    </button>
+
+
+    <button
+      class="tab"
+      onclick="courseTab(
+        '${course.id}',
+        'announcements',
+        this
+      )"
+    >
+      Announcements
+    </button>
+
+  </div>
+
+
+  <div id="courseContent">
+
+    ${courseHome(course)}
+
+  </div>
+
+  `;
+
+}
+
+
+/* =========================
+   COURSE HOME
+========================= */
+
+function courseHome(course) {
+
+  return `
+
+  <div class="notice">
+
+    <b>
+      Course Announcement:
+    </b>
+
+    Midterm materials are available.
+    Review all instructions before
+    submitting your work.
+
+  </div>
+
+
+  <div class="panel">
+
+    <h2>
+      Course Information
+    </h2>
+
+    <p>
+
+      Welcome to
+      ${course.name}.
+
+      Review assignments,
+      course materials,
+      grades, and announcements
+      using the tabs above.
+
+    </p>
+
+  </div>
+
+
+  <div class="panel">
+
+    <h2>
+      Upcoming Assignments
+    </h2>
+
+
+    ${course.assignments.slice(-3).map(a => `
+
+      <div class="list-item">
+
+        <b>
+          ${a[0]}
+        </b>
+
+        <br>
+
+        Due ${a[2]}
+
+      </div>
+
+    `).join("")}
+
+  </div>
+
+  `;
+
+}
+
+
+/* =========================
+   COURSE TABS
+========================= */
+
+function courseTab(id,tab,button) {
+
+  document
+    .querySelectorAll(".tab")
+    .forEach(x =>
+      x.classList.remove("active")
+    );
+
+  button.classList.add("active");
+
+
+  const course =
+    courses.find(c => c.id === id);
+
+
+  const content =
+    document.getElementById(
+      "courseContent"
+    );
+
+
+  if (tab === "home") {
+
+    content.innerHTML =
+      courseHome(course);
+
+  }
+
+
+  if (tab === "assignments") {
+
+    content.innerHTML = `
+
+    <div class="table-wrap">
+
+      <table>
+
+        <tr>
+
+          <th>
+            Assignment
+          </th>
+
+          <th>
+            Due
+          </th>
+
+          <th>
+            Grade
+          </th>
+
+        </tr>
+
+
+        ${course.assignments.map(
+          (a,index) => `
+
+          <tr
+            class="clickable"
+            onclick="openAssignment(
+              '${course.id}',
+              ${index}
+            )"
+          >
+
+            <td>
+              <b>${a[0]}</b>
+            </td>
+
+            <td>
+              ${a[2]}
+            </td>
+
+            <td>
+              ${a[1].toFixed(1)}%
+            </td>
+
+          </tr>
+
+        `).join("")}
+
+      </table>
+
+    </div>
+
+    `;
+
+  }
+
+
+  if (tab === "grades") {
+
+    content.innerHTML = `
+
+    <div class="panel">
+
+      <h2>
+        Course Grade
+      </h2>
+
+      <div class="big">
+        ${course.grade.toFixed(1)}%
+      </div>
+
+      <p>
+        Current course average
+      </p>
+
+    </div>
+
+
+    <div class="table-wrap">
+
+      <table>
+
+        <tr>
+
+          <th>
+            Assignment
+          </th>
+
+          <th>
+            Grade
+          </th>
+
+        </tr>
+
+
+        ${course.assignments.map(a => `
+
+          <tr>
+
+            <td>
+              ${a[0]}
+            </td>
+
+            <td>
+              <b>
+                ${a[1].toFixed(1)}%
+              </b>
+            </td>
+
+          </tr>
+
+        `).join("")}
+
+      </table>
+
+    </div>
+
+    `;
+
+  }
+
+
+  if (tab === "materials") {
+
+    const materials = [
+
+      "Course Syllabus",
+
+      "Lecture Notes",
+
+      "Study Guide",
+
+      "Practice Questions",
+
+      "Reading Materials",
+
+      "Midterm Review"
+
+    ];
+
+
+    content.innerHTML = `
+
+    <div class="panel">
+
+      <h2>
+        Course Materials
+      </h2>
+
+
+      ${materials.map(material => `
+
+        <div
+          class="list-item"
+          onclick="openMaterial(
+            '${material}'
+          )"
+          style="cursor:pointer"
+        >
+
+          📄
+
+          <b>
+            ${material}
+          </b>
+
+          <br>
+
+          <span>
+            Open material →
+          </span>
+
+        </div>
+
+      `).join("")}
+
+    </div>
+
+    `;
+
+  }
+
+
+  if (tab === "announcements") {
+
+    content.innerHTML = `
+
+    <div class="panel">
+
+      <h2>
+        Announcements
+      </h2>
+
+
+      <div class="list-item">
+
+        <b>
+          Midterm Reminder
+        </b>
+
+        <br>
+
+        Please complete the midterm
+        by Sunday at 11:59 PM.
+
+      </div>
+
+
+      <div class="list-item">
+
+        <b>
+          Week 8 Update
+        </b>
+
+        <br>
+
+        New course materials have
+        been posted.
+
+      </div>
+
+
+      <div class="list-item">
+
+        <b>
+          Grade Update
+        </b>
+
+        <br>
+
+        Grades have been updated
+        for recent assignments.
+
+      </div>
+
+    </div>
+
+    `;
+
+  }
+
+}
+
+
+/* =========================
+   ASSIGNMENT DETAILS
+========================= */
+
+function openAssignment(id,index) {
+
+  const course =
+    courses.find(c => c.id === id);
+
+  const assignment =
+    course.assignments[index];
+
+
+  document.getElementById("main").innerHTML = `
+
+  <button
+    class="back"
+    onclick="showCourse('${course.id}')"
+  >
+    ← Back to ${course.code}
+  </button>
+
+
+  <div
+    class="panel"
+    style="margin-top:18px"
+  >
+
+    <h1>
+      ${assignment[0]}
+    </h1>
+
+
+    <p>
+
+      <b>Course:</b>
+
+      ${course.code}
+      —
+      ${course.name}
+
+    </p>
+
+
+    <p>
+
+      <b>Due:</b>
+
+      ${assignment[2]}
+      at 11:59 PM
+
+    </p>
+
+
+    <hr>
+
+
+    <h2>
+      Assignment Details
+    </h2>
+
+
+    <p>
+
+      Complete the assigned course
+      work and submit your response
+      before the due date.
+
+    </p>
+
+
+    <h3>
+      Instructions
+    </h3>
+
+
+    <p>
+
+      Review the required course
+      materials, answer all questions,
+      and submit your completed work
+      through the assignment area.
+
+    </p>
+
+
+    <h3>
+      Grade
+    </h3>
+
+
+    <div class="big">
+
+      ${assignment[1].toFixed(1)}%
+
+    </div>
+
+
+    <br>
+
+
+    <span class="badge">
+      Graded
+    </span>
+
+  </div>
+
+  `;
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* =========================
+   MATERIAL DETAILS
+========================= */
+
+function openMaterial(name) {
+
+  document.getElementById("main").innerHTML = `
+
+  <button
+    class="back"
+    onclick="showPage('courses')"
+  >
+    ← Back to Courses
+  </button>
+
+
+  <div
+    class="panel"
+    style="margin-top:18px"
+  >
+
+    <h1>
+      ${name}
+    </h1>
+
+
+    <p>
+
+      This course material contains
+      notes, key concepts, examples,
+      and review information for the
+      current unit.
+
+    </p>
+
+
+    <h3>
+      Study Notes
+    </h3>
+
+
+    <p>
+
+      Review the major concepts from
+      this unit and use the examples
+      provided to prepare for upcoming
+      assignments and assessments.
+
+    </p>
+
+
+    <h3>
+      Review
+    </h3>
+
+
+    <p>
+
+      Make sure you understand the
+      terminology, key ideas, and
+      practice questions before
+      completing your next assignment.
+
+    </p>
+
+  </div>
+
+  `;
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+showPage("dashboard");
+
+</script>
+
+</body>
+</html>
