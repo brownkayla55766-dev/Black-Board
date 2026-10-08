@@ -3,9 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Blackboard</title>
 
 <style>
+
+/* =========================
+   BASIC
+========================= */
+
 * {
     box-sizing: border-box;
 }
@@ -21,6 +27,7 @@ button {
     font-family: inherit;
     cursor: pointer;
 }
+
 
 /* =========================
    LOGIN
@@ -86,8 +93,9 @@ button {
     font-weight: bold;
 }
 
+
 /* =========================
-   PORTAL
+   TOP NAVIGATION
 ========================= */
 
 #portal {
@@ -101,7 +109,7 @@ button {
     display: flex;
     align-items: center;
     padding: 18px 35px;
-    gap: 35px;
+    gap: 30px;
 }
 
 .logo {
@@ -117,7 +125,7 @@ button {
 .navigation {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 7px;
     overflow-x: auto;
     flex: 1;
 }
@@ -126,7 +134,7 @@ button {
     background: transparent;
     color: white;
     border: none;
-    padding: 14px 18px;
+    padding: 14px 17px;
     border-radius: 10px;
     font-size: 16px;
     white-space: nowrap;
@@ -152,6 +160,11 @@ button {
     background: #333;
 }
 
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
 .content {
     max-width: 1250px;
     margin: auto;
@@ -163,17 +176,15 @@ button {
     margin: 0 0 35px;
 }
 
-/* =========================
-   GENERAL CARDS
-========================= */
-
-.card {
-    background: white;
-    border-radius: 15px;
-    padding: 30px;
-    margin-bottom: 25px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.12);
+.section-title {
+    font-size: 36px;
+    margin: 35px 0 25px;
 }
+
+
+/* =========================
+   NOTICE
+========================= */
 
 .notice {
     background: #fff9dc;
@@ -187,14 +198,28 @@ button {
     margin-top: 0;
 }
 
+.notice p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+
 /* =========================
-   COURSES
+   GENERAL CARD
 ========================= */
 
-.section-title {
-    font-size: 36px;
-    margin: 35px 0 25px;
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.12);
 }
+
+
+/* =========================
+   COURSE CARDS
+========================= */
 
 .course-card {
     background: white;
@@ -235,6 +260,7 @@ button {
     background: #333;
 }
 
+
 /* =========================
    TABLES
 ========================= */
@@ -273,6 +299,7 @@ tr:last-child td {
     font-weight: bold;
 }
 
+
 /* =========================
    COURSE PAGE
 ========================= */
@@ -287,6 +314,10 @@ tr:last-child td {
 
 .course-header .course-code {
     color: #f2c744;
+}
+
+.course-header h1 {
+    font-size: 35px;
 }
 
 .course-tabs {
@@ -312,6 +343,7 @@ tr:last-child td {
     color: #111;
     font-weight: bold;
 }
+
 
 /* =========================
    PROFILE
@@ -382,6 +414,7 @@ tr:last-child td {
     font-weight: 500;
 }
 
+
 /* =========================
    MESSAGES / DISCUSSIONS
 ========================= */
@@ -389,7 +422,7 @@ tr:last-child td {
 .message {
     border-left: 6px solid #f2c744;
     padding: 20px;
-    background: #fff;
+    background: white;
     border-radius: 8px;
     margin-bottom: 18px;
 }
@@ -397,6 +430,7 @@ tr:last-child td {
 .message h3 {
     margin-top: 0;
 }
+
 
 /* =========================
    MOBILE
@@ -448,28 +482,34 @@ tr:last-child td {
         text-align: left;
     }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
-     LOGIN
-========================= -->
+
+<!-- =====================================================
+     LOGIN PAGE
+===================================================== -->
 
 <div id="loginPage">
 
     <div class="login-card">
 
         <div class="login-logo">
-            Student <span>Portal</span>
+            Blackboard
         </div>
 
         <h2>Sign In</h2>
 
         <form id="loginForm">
 
-            <label for="username">Username</label>
+            <label for="username">
+                Username
+            </label>
+
             <input
                 type="text"
                 id="username"
@@ -477,7 +517,11 @@ tr:last-child td {
                 required
             >
 
-            <label for="password">Password</label>
+
+            <label for="password">
+                Password
+            </label>
+
             <input
                 type="password"
                 id="password"
@@ -485,7 +529,11 @@ tr:last-child td {
                 required
             >
 
-            <button class="login-button" type="submit">
+
+            <button
+                class="login-button"
+                type="submit"
+            >
                 Log In
             </button>
 
@@ -496,148 +544,229 @@ tr:last-child td {
 </div>
 
 
-<!-- =========================
+
+<!-- =====================================================
      PORTAL
-========================= -->
+===================================================== -->
 
 <div id="portal">
 
     <header class="topbar">
 
         <div class="logo">
-            Student <span>Portal</span>
+            Blackboard
         </div>
+
 
         <nav class="navigation">
 
-            <button class="nav-button" data-page="dashboard">
+            <button
+                class="nav-button"
+                data-page="dashboard"
+            >
                 Dashboard
             </button>
 
-            <button class="nav-button" data-page="courses">
+
+            <button
+                class="nav-button"
+                data-page="courses"
+            >
                 Courses
             </button>
 
-            <button class="nav-button" data-page="assignments">
+
+            <button
+                class="nav-button"
+                data-page="assignments"
+            >
                 Assignments
             </button>
 
-            <button class="nav-button" data-page="grades">
+
+            <button
+                class="nav-button"
+                data-page="grades"
+            >
                 Grades
             </button>
 
-            <button class="nav-button" data-page="calendar">
+
+            <button
+                class="nav-button"
+                data-page="calendar"
+            >
                 Calendar
             </button>
 
-            <button class="nav-button" data-page="messages">
+
+            <button
+                class="nav-button"
+                data-page="messages"
+            >
                 Messages
             </button>
 
-            <button class="nav-button" data-page="discussions">
+
+            <button
+                class="nav-button"
+                data-page="discussions"
+            >
                 Discussions
             </button>
 
-            <button class="nav-button" data-page="profile">
+
+            <button
+                class="nav-button"
+                data-page="profile"
+            >
                 Profile
             </button>
 
         </nav>
 
-        <button class="logout-button" id="logoutButton">
+
+        <button
+            class="logout-button"
+            id="logoutButton"
+        >
             Log Out
         </button>
 
     </header>
 
-    <main class="content" id="mainContent"></main>
+
+    <main
+        class="content"
+        id="mainContent"
+    ></main>
 
 </div>
 
 
+
 <script>
 
-/* =========================
+/* =====================================================
    COURSE DATA
-========================= */
+===================================================== */
 
 const courses = [
 
     {
         code: "ENGL 1102",
         name: "English Composition II",
+
         assignments: [
 
             ["September 7", "Narrative Writing Workshop", 88],
+
             ["September 14", "Rhetorical Analysis", 94],
+
             ["September 21", "Source Evaluation Exercise", 91],
+
             ["September 25", "Argument Essay Draft", 96],
+
             ["September 28", "Citation Practice", 89],
 
             ["October 2", "Research Proposal", null],
+
             ["October 5", "Literary Analysis", null],
+
             ["October 11", "English Composition II Midterm", null],
+
             ["October 16", "Peer Review Portfolio", null],
+
             ["October 11", "Research Paper", null]
 
         ]
     },
 
+
     {
         code: "MATH 1411",
         name: "College Algebra",
+
         assignments: [
 
             ["September 6", "Linear Equations Quiz", 84],
+
             ["September 12", "Functions Homework", 91],
+
             ["September 18", "Polynomial Practice", 86],
+
             ["September 23", "Quadratic Equations Quiz", 90],
+
             ["September 27", "Graphing Functions", 83],
 
             ["October 1", "Exponential Functions", null],
+
             ["October 5", "Systems of Equations", null],
+
             ["October 11", "Math 1411 Midterm", null],
+
             ["October 15", "Inequality Review", null],
+
             ["October 18", "Algebra Problem Set", null]
 
         ]
     },
 
+
     {
         code: "PSYC 2112",
         name: "Psychology II",
+
         assignments: [
 
             ["September 6", "Learning & Conditioning Quiz", 91],
+
             ["September 12", "Memory Reflection", 88],
+
             ["September 18", "Development Study", 93],
+
             ["September 22", "Personality Worksheet", 90],
+
             ["September 27", "Social Psychology Quiz", 86],
 
             ["October 1", "Emotion Discussion", null],
+
             ["October 5", "Psychological Disorders Review", null],
+
             ["October 11", "Psychology II Midterm", null],
+
             ["October 16", "Research Methods Assignment", null],
+
             ["October 20", "Final Review Journal", null]
 
         ]
     },
 
+
     {
         code: "POLS 1101",
         name: "American Government",
+
         assignments: [
 
             ["September 6", "Constitution Study Guide", 94],
+
             ["September 12", "Federalism Quiz", 89],
+
             ["September 18", "Civil Liberties Worksheet", 96],
+
             ["September 23", "Congress Research", 91],
+
             ["September 27", "Presidential Powers Quiz", 88],
 
             ["October 1", "Supreme Court Case Brief", null],
+
             ["October 5", "Voting & Elections Review", null],
+
             ["October 11", "American Government Midterm", null],
+
             ["October 16", "Political Parties Discussion", null],
+
             ["October 20", "Public Policy Analysis", null]
 
         ]
@@ -646,63 +775,143 @@ const courses = [
 ];
 
 
-/* =========================
-   UPCOMING ASSIGNMENTS
-========================= */
+
+/* =====================================================
+   UPCOMING
+===================================================== */
 
 const upcoming = [
 
-    ["ENGL 1102", "English Composition II Midterm", "October 11"],
+    [
+        "ENGL 1102",
+        "English Composition II Midterm",
+        "October 11"
+    ],
 
-    ["MATH 1411", "Math 1411 Midterm", "October 11"],
+    [
+        "MATH 1411",
+        "Math 1411 Midterm",
+        "October 11"
+    ],
 
-    ["PSYC 2112", "Psychology II Midterm", "October 11"],
+    [
+        "PSYC 2112",
+        "Psychology II Midterm",
+        "October 11"
+    ],
 
-    ["POLS 1101", "American Government Midterm", "October 11"],
+    [
+        "POLS 1101",
+        "American Government Midterm",
+        "October 11"
+    ],
 
-    ["ENGL 1102", "Research Paper", "October 11"]
+    [
+        "ENGL 1102",
+        "Research Paper",
+        "October 11"
+    ]
 
 ];
 
 
-/* =========================
-   CALENDAR ASSIGNMENTS
-========================= */
+
+/* =====================================================
+   CALENDAR
+===================================================== */
 
 const calendarAssignments = [
 
-    ["October 11", "English Composition II Midterm", "ENGL 1102"],
-    ["October 11", "Math 1411 Midterm", "MATH 1411"],
-    ["October 11", "Psychology II Midterm", "PSYC 2112"],
-    ["October 11", "American Government Midterm", "POLS 1101"],
-    ["October 11", "Research Paper", "ENGL 1102"],
+    [
+        "October 11",
+        "English Composition II Midterm",
+        "ENGL 1102"
+    ],
 
-    ["October 15", "Inequality Review", "MATH 1411"],
-    ["October 16", "Peer Review Portfolio", "ENGL 1102"],
-    ["October 16", "Research Methods Assignment", "PSYC 2112"],
-    ["October 18", "Algebra Problem Set", "MATH 1411"],
-    ["October 20", "Final Review Journal", "PSYC 2112"],
-    ["October 20", "Public Policy Analysis", "POLS 1101"]
+    [
+        "October 11",
+        "Math 1411 Midterm",
+        "MATH 1411"
+    ],
+
+    [
+        "October 11",
+        "Psychology II Midterm",
+        "PSYC 2112"
+    ],
+
+    [
+        "October 11",
+        "American Government Midterm",
+        "POLS 1101"
+    ],
+
+    [
+        "October 11",
+        "Research Paper",
+        "ENGL 1102"
+    ],
+
+    [
+        "October 15",
+        "Inequality Review",
+        "MATH 1411"
+    ],
+
+    [
+        "October 16",
+        "Peer Review Portfolio",
+        "ENGL 1102"
+    ],
+
+    [
+        "October 16",
+        "Research Methods Assignment",
+        "PSYC 2112"
+    ],
+
+    [
+        "October 18",
+        "Algebra Problem Set",
+        "MATH 1411"
+    ],
+
+    [
+        "October 20",
+        "Final Review Journal",
+        "PSYC 2112"
+    ],
+
+    [
+        "October 20",
+        "Public Policy Analysis",
+        "POLS 1101"
+    ]
 
 ];
+
 
 
 let selectedCourse = null;
 
 
-/* =========================
+
+/* =====================================================
    PAGE ROUTER
-========================= */
+===================================================== */
 
 function showPage(page) {
 
     document.querySelectorAll(".nav-button").forEach(button => {
+
         button.classList.remove("active");
 
         if (button.dataset.page === page) {
             button.classList.add("active");
         }
+
     });
+
 
     if (page === "dashboard") {
         showDashboard();
@@ -739,9 +948,10 @@ function showPage(page) {
 }
 
 
-/* =========================
+
+/* =====================================================
    DASHBOARD
-========================= */
+===================================================== */
 
 function showDashboard() {
 
@@ -751,9 +961,12 @@ function showDashboard() {
             Dashboard
         </h1>
 
+
         <div class="notice">
 
-            <h2>Welcome back!</h2>
+            <h2>
+                Welcome back!
+            </h2>
 
             <p>
                 Here are your current courses and upcoming assignments.
@@ -761,11 +974,13 @@ function showDashboard() {
 
         </div>
 
+
         <h2 class="section-title">
             My Courses
         </h2>
 
     `;
+
 
     courses.forEach(course => {
 
@@ -777,13 +992,17 @@ function showDashboard() {
                     ${course.code}
                 </div>
 
+
                 <div class="course-name">
                     ${course.name}
                 </div>
 
+
                 <div class="course-average">
-                    Current course average: <strong>-</strong>
+                    Current course average:
+                    <strong>-</strong>
                 </div>
+
 
                 <button
                     class="open-course"
@@ -799,11 +1018,13 @@ function showDashboard() {
     });
 
 
+
     html += `
 
         <h2 class="section-title">
             Upcoming Assignments
         </h2>
+
 
         <div class="table-container">
 
@@ -812,12 +1033,23 @@ function showDashboard() {
                 <thead>
 
                     <tr>
-                        <th>Course</th>
-                        <th>Assignment</th>
-                        <th>Due</th>
+
+                        <th>
+                            Course
+                        </th>
+
+                        <th>
+                            Assignment
+                        </th>
+
+                        <th>
+                            Due
+                        </th>
+
                     </tr>
 
                 </thead>
+
 
                 <tbody>
 
@@ -830,11 +1062,17 @@ function showDashboard() {
 
             <tr>
 
-                <td>${item[0]}</td>
+                <td>
+                    ${item[0]}
+                </td>
 
-                <td>${item[1]}</td>
+                <td>
+                    ${item[1]}
+                </td>
 
-                <td>${item[2]}</td>
+                <td>
+                    ${item[2]}
+                </td>
 
             </tr>
 
@@ -853,14 +1091,16 @@ function showDashboard() {
 
     `;
 
+
     document.getElementById("mainContent").innerHTML = html;
 
 }
 
 
-/* =========================
+
+/* =====================================================
    COURSES
-========================= */
+===================================================== */
 
 function showCourses() {
 
@@ -872,6 +1112,7 @@ function showCourses() {
 
     `;
 
+
     courses.forEach(course => {
 
         html += `
@@ -882,13 +1123,17 @@ function showCourses() {
                     ${course.code}
                 </div>
 
+
                 <div class="course-name">
                     ${course.name}
                 </div>
 
+
                 <div class="course-average">
-                    Current course average: <strong>-</strong>
+                    Current course average:
+                    <strong>-</strong>
                 </div>
+
 
                 <button
                     class="open-course"
@@ -903,14 +1148,16 @@ function showCourses() {
 
     });
 
+
     document.getElementById("mainContent").innerHTML = html;
 
 }
 
 
-/* =========================
+
+/* =====================================================
    ASSIGNMENTS
-========================= */
+===================================================== */
 
 function showAssignments() {
 
@@ -922,6 +1169,7 @@ function showAssignments() {
 
     `;
 
+
     courses.forEach(course => {
 
         html += `
@@ -930,6 +1178,7 @@ function showAssignments() {
                 ${course.code} — ${course.name}
             </h2>
 
+
             <div class="table-container">
 
                 <table>
@@ -937,12 +1186,23 @@ function showAssignments() {
                     <thead>
 
                         <tr>
-                            <th>Date</th>
-                            <th>Assignment</th>
-                            <th>Grade</th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Assignment
+                            </th>
+
+                            <th>
+                                Grade
+                            </th>
+
                         </tr>
 
                     </thead>
+
 
                     <tbody>
 
@@ -951,19 +1211,29 @@ function showAssignments() {
 
         course.assignments.forEach(assignment => {
 
-            const grade = assignment[2] === null
+            const grade =
+                assignment[2] === null
                 ? "Not Graded"
                 : assignment[2];
+
 
             html += `
 
                 <tr>
 
-                    <td>${assignment[0]}</td>
+                    <td>
+                        ${assignment[0]}
+                    </td>
 
-                    <td>${assignment[1]}</td>
+                    <td>
+                        ${assignment[1]}
+                    </td>
 
-                    <td class="${assignment[2] !== null ? "grade-good" : ""}">
+                    <td class="${
+                        assignment[2] !== null
+                        ? "grade-good"
+                        : ""
+                    }">
                         ${grade}
                     </td>
 
@@ -986,14 +1256,16 @@ function showAssignments() {
 
     });
 
+
     document.getElementById("mainContent").innerHTML = html;
 
 }
 
 
-/* =========================
+
+/* =====================================================
    GRADES
-========================= */
+===================================================== */
 
 function showGrades() {
 
@@ -1003,9 +1275,12 @@ function showGrades() {
             Grades
         </h1>
 
+
         <div class="notice">
 
-            <h2>Grades</h2>
+            <h2>
+                Grades
+            </h2>
 
             <p>
                 Individual graded assignments are shown below.
@@ -1048,9 +1323,10 @@ function showGrades() {
 }
 
 
-/* =========================
+
+/* =====================================================
    CALENDAR
-========================= */
+===================================================== */
 
 function showCalendar() {
 
@@ -1060,6 +1336,7 @@ function showCalendar() {
             Calendar
         </h1>
 
+
         <div class="table-container">
 
             <table>
@@ -1067,12 +1344,23 @@ function showCalendar() {
                 <thead>
 
                     <tr>
-                        <th>Date</th>
-                        <th>Assignment</th>
-                        <th>Course</th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Assignment
+                        </th>
+
+                        <th>
+                            Course
+                        </th>
+
                     </tr>
 
                 </thead>
+
 
                 <tbody>
 
@@ -1085,11 +1373,17 @@ function showCalendar() {
 
             <tr>
 
-                <td>${item[0]}</td>
+                <td>
+                    ${item[0]}
+                </td>
 
-                <td>${item[1]}</td>
+                <td>
+                    ${item[1]}
+                </td>
 
-                <td>${item[2]}</td>
+                <td>
+                    ${item[2]}
+                </td>
 
             </tr>
 
@@ -1108,14 +1402,16 @@ function showCalendar() {
 
     `;
 
+
     document.getElementById("mainContent").innerHTML = html;
 
 }
 
 
-/* =========================
+
+/* =====================================================
    MESSAGES
-========================= */
+===================================================== */
 
 function showMessages() {
 
@@ -1124,6 +1420,7 @@ function showMessages() {
         <h1 class="page-title">
             Messages
         </h1>
+
 
         <div class="message">
 
@@ -1137,6 +1434,7 @@ function showMessages() {
             </p>
 
         </div>
+
 
         <div class="message">
 
@@ -1156,9 +1454,10 @@ function showMessages() {
 }
 
 
-/* =========================
+
+/* =====================================================
    DISCUSSIONS
-========================= */
+===================================================== */
 
 function showDiscussions() {
 
@@ -1167,6 +1466,7 @@ function showDiscussions() {
         <h1 class="page-title">
             Discussions
         </h1>
+
 
         <div class="message">
 
@@ -1181,6 +1481,7 @@ function showDiscussions() {
 
         </div>
 
+
         <div class="message">
 
             <h3>
@@ -1193,6 +1494,7 @@ function showDiscussions() {
             </p>
 
         </div>
+
 
         <div class="message">
 
@@ -1212,9 +1514,10 @@ function showDiscussions() {
 }
 
 
-/* =========================
+
+/* =====================================================
    PROFILE
-========================= */
+===================================================== */
 
 function showProfile() {
 
@@ -1224,13 +1527,16 @@ function showProfile() {
             Profile
         </h1>
 
+
         <div class="profile-card">
+
 
             <div class="profile-header">
 
                 <div class="profile-avatar">
                     MB
                 </div>
+
 
                 <div>
 
@@ -1247,7 +1553,9 @@ function showProfile() {
             </div>
 
 
+
             <div class="profile-info">
+
 
                 <div class="profile-row">
 
@@ -1260,6 +1568,7 @@ function showProfile() {
                     </div>
 
                 </div>
+
 
 
                 <div class="profile-row">
@@ -1275,6 +1584,7 @@ function showProfile() {
                 </div>
 
 
+
                 <div class="profile-row">
 
                     <div class="profile-label">
@@ -1286,6 +1596,7 @@ function showProfile() {
                     </div>
 
                 </div>
+
 
 
                 <div class="profile-row">
@@ -1301,6 +1612,7 @@ function showProfile() {
                 </div>
 
 
+
                 <div class="profile-row">
 
                     <div class="profile-label">
@@ -1313,6 +1625,7 @@ function showProfile() {
 
                 </div>
 
+
             </div>
 
         </div>
@@ -1322,26 +1635,30 @@ function showProfile() {
 }
 
 
-/* =========================
+
+/* =====================================================
    OPEN COURSE
-========================= */
+===================================================== */
 
 function openCourse(code) {
 
-    selectedCourse = courses.find(course => course.code === code);
+    selectedCourse =
+        courses.find(course => course.code === code);
 
     showCourseHome();
 
 }
 
 
-/* =========================
+
+/* =====================================================
    COURSE HOME
-========================= */
+===================================================== */
 
 function showCourseHome() {
 
     const course = selectedCourse;
+
 
     document.getElementById("mainContent").innerHTML = `
 
@@ -1364,28 +1681,42 @@ function showCourseHome() {
 
         <div class="course-tabs">
 
-            <button class="course-tab active"
-                onclick="showCourseHome()">
+            <button
+                class="course-tab active"
+                onclick="showCourseHome()"
+            >
                 Home
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseAssignments()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseAssignments()"
+            >
                 Assignments
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseGrades()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseGrades()"
+            >
                 Grades
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseMaterials()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseMaterials()"
+            >
                 Materials
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseAnnouncements()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseAnnouncements()"
+            >
                 Announcements
             </button>
 
@@ -1411,13 +1742,15 @@ function showCourseHome() {
 }
 
 
-/* =========================
+
+/* =====================================================
    COURSE ASSIGNMENTS
-========================= */
+===================================================== */
 
 function showCourseAssignments() {
 
     const course = selectedCourse;
+
 
     let html = `
 
@@ -1436,28 +1769,42 @@ function showCourseAssignments() {
 
         <div class="course-tabs">
 
-            <button class="course-tab"
-                onclick="showCourseHome()">
+            <button
+                class="course-tab"
+                onclick="showCourseHome()"
+            >
                 Home
             </button>
 
-            <button class="course-tab active"
-                onclick="showCourseAssignments()">
+
+            <button
+                class="course-tab active"
+                onclick="showCourseAssignments()"
+            >
                 Assignments
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseGrades()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseGrades()"
+            >
                 Grades
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseMaterials()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseMaterials()"
+            >
                 Materials
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseAnnouncements()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseAnnouncements()"
+            >
                 Announcements
             </button>
 
@@ -1471,12 +1818,23 @@ function showCourseAssignments() {
                 <thead>
 
                     <tr>
-                        <th>Date</th>
-                        <th>Assignment</th>
-                        <th>Grade</th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Assignment
+                        </th>
+
+                        <th>
+                            Grade
+                        </th>
+
                     </tr>
 
                 </thead>
+
 
                 <tbody>
 
@@ -1485,9 +1843,11 @@ function showCourseAssignments() {
 
     course.assignments.forEach(assignment => {
 
-        const grade = assignment[2] === null
+        const grade =
+            assignment[2] === null
             ? "Not Graded"
             : assignment[2];
+
 
         html += `
 
@@ -1522,18 +1882,21 @@ function showCourseAssignments() {
 
     `;
 
+
     document.getElementById("mainContent").innerHTML = html;
 
 }
 
 
-/* =========================
+
+/* =====================================================
    COURSE GRADES
-========================= */
+===================================================== */
 
 function showCourseGrades() {
 
     const course = selectedCourse;
+
 
     document.getElementById("mainContent").innerHTML = `
 
@@ -1552,28 +1915,42 @@ function showCourseGrades() {
 
         <div class="course-tabs">
 
-            <button class="course-tab"
-                onclick="showCourseHome()">
+            <button
+                class="course-tab"
+                onclick="showCourseHome()"
+            >
                 Home
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseAssignments()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseAssignments()"
+            >
                 Assignments
             </button>
 
-            <button class="course-tab active"
-                onclick="showCourseGrades()">
+
+            <button
+                class="course-tab active"
+                onclick="showCourseGrades()"
+            >
                 Grades
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseMaterials()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseMaterials()"
+            >
                 Materials
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseAnnouncements()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseAnnouncements()"
+            >
                 Announcements
             </button>
 
@@ -1602,13 +1979,15 @@ function showCourseGrades() {
 }
 
 
-/* =========================
+
+/* =====================================================
    COURSE MATERIALS
-========================= */
+===================================================== */
 
 function showCourseMaterials() {
 
     const course = selectedCourse;
+
 
     document.getElementById("mainContent").innerHTML = `
 
@@ -1627,28 +2006,42 @@ function showCourseMaterials() {
 
         <div class="course-tabs">
 
-            <button class="course-tab"
-                onclick="showCourseHome()">
+            <button
+                class="course-tab"
+                onclick="showCourseHome()"
+            >
                 Home
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseAssignments()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseAssignments()"
+            >
                 Assignments
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseGrades()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseGrades()"
+            >
                 Grades
             </button>
 
-            <button class="course-tab active"
-                onclick="showCourseMaterials()">
+
+            <button
+                class="course-tab active"
+                onclick="showCourseMaterials()"
+            >
                 Materials
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseAnnouncements()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseAnnouncements()"
+            >
                 Announcements
             </button>
 
@@ -1678,13 +2071,15 @@ function showCourseMaterials() {
 }
 
 
-/* =========================
+
+/* =====================================================
    COURSE ANNOUNCEMENTS
-========================= */
+===================================================== */
 
 function showCourseAnnouncements() {
 
     const course = selectedCourse;
+
 
     document.getElementById("mainContent").innerHTML = `
 
@@ -1703,28 +2098,42 @@ function showCourseAnnouncements() {
 
         <div class="course-tabs">
 
-            <button class="course-tab"
-                onclick="showCourseHome()">
+            <button
+                class="course-tab"
+                onclick="showCourseHome()"
+            >
                 Home
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseAssignments()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseAssignments()"
+            >
                 Assignments
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseGrades()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseGrades()"
+            >
                 Grades
             </button>
 
-            <button class="course-tab"
-                onclick="showCourseMaterials()">
+
+            <button
+                class="course-tab"
+                onclick="showCourseMaterials()"
+            >
                 Materials
             </button>
 
-            <button class="course-tab active"
-                onclick="showCourseAnnouncements()">
+
+            <button
+                class="course-tab active"
+                onclick="showCourseAnnouncements()"
+            >
                 Announcements
             </button>
 
@@ -1749,57 +2158,82 @@ function showCourseAnnouncements() {
 }
 
 
-/* =========================
+
+/* =====================================================
    LOGIN
-   PROFILE OPENS FIRST
-========================= */
+   OPENS DASHBOARD/COURSES
+===================================================== */
 
-document.getElementById("loginForm").addEventListener("submit", function(e) {
+document
+    .getElementById("loginForm")
+    .addEventListener("submit", function(e) {
 
-    e.preventDefault();
-
-    document.getElementById("loginPage").style.display = "none";
-
-    document.getElementById("portal").style.display = "block";
-
-    /*
-       THIS IS THE IMPORTANT CHANGE:
-       Profile opens immediately after login.
-    */
-
-    showPage("profile");
-
-});
+        e.preventDefault();
 
 
-/* =========================
-   NAVIGATION
-========================= */
+        document
+            .getElementById("loginPage")
+            .style.display = "none";
 
-document.querySelectorAll(".nav-button").forEach(button => {
 
-    button.addEventListener("click", function() {
+        document
+            .getElementById("portal")
+            .style.display = "block";
 
-        showPage(this.dataset.page);
+
+        /*
+            LOGIN STILL OPENS THE DASHBOARD.
+            PROFILE IS AVAILABLE THROUGH THE
+            PROFILE BUTTON IN THE TOP MENU.
+        */
+
+        showPage("dashboard");
 
     });
 
-});
 
 
-/* =========================
+/* =====================================================
+   NAVIGATION BUTTONS
+===================================================== */
+
+document
+    .querySelectorAll(".nav-button")
+    .forEach(button => {
+
+        button.addEventListener("click", function() {
+
+            showPage(this.dataset.page);
+
+        });
+
+    });
+
+
+
+/* =====================================================
    LOG OUT
-========================= */
+===================================================== */
 
-document.getElementById("logoutButton").addEventListener("click", function() {
+document
+    .getElementById("logoutButton")
+    .addEventListener("click", function() {
 
-    document.getElementById("portal").style.display = "none";
+        document
+            .getElementById("portal")
+            .style.display = "none";
 
-    document.getElementById("loginPage").style.display = "flex";
 
-    document.getElementById("loginForm").reset();
+        document
+            .getElementById("loginPage")
+            .style.display = "flex";
 
-});
+
+        document
+            .getElementById("loginForm")
+            .reset();
+
+    });
 
 
 </script>
