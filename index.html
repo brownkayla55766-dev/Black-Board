@@ -13,195 +13,238 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: #f3f4f6;
+    background: #f1f2f5;
     color: #222;
 }
 
 button {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: inherit;
     cursor: pointer;
 }
 
-/* LOGIN */
+/* =========================
+   LOGIN
+========================= */
 
 #loginPage {
     min-height: 100vh;
     background: #111;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 20px;
+    align-items: center;
+    padding: 25px;
 }
 
-.login-box {
-    width: 100%;
-    max-width: 430px;
+.login-card {
     background: white;
-    padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 15px 45px rgba(0,0,0,.35);
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.3);
 }
 
 .login-logo {
-    font-size: 30px;
+    text-align: center;
+    font-size: 38px;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 35px;
 }
 
-.yellow {
-    color: #f4c400;
+.login-logo span {
+    color: #f2c744;
 }
 
-.login-subtitle {
-    color: #666;
-    margin-bottom: 28px;
+.login-card h2 {
+    margin-bottom: 25px;
 }
 
-.login-box label {
+.login-card label {
     display: block;
     font-weight: bold;
-    margin-top: 17px;
+    margin-top: 18px;
     margin-bottom: 7px;
 }
 
-.login-box input {
+.login-card input {
     width: 100%;
-    padding: 13px;
+    padding: 14px;
     border: 1px solid #bbb;
-    border-radius: 6px;
+    border-radius: 7px;
     font-size: 16px;
 }
 
 .login-button {
     width: 100%;
-    margin-top: 24px;
-    padding: 14px;
-    background: #f4c400;
+    margin-top: 25px;
+    padding: 15px;
     border: none;
     border-radius: 7px;
-    font-size: 16px;
+    background: #f2c744;
+    color: #111;
+    font-size: 17px;
     font-weight: bold;
 }
 
-/* PORTAL */
+/* =========================
+   PORTAL
+========================= */
 
 #portal {
     display: none;
-    min-height: 100vh;
 }
 
 .topbar {
     background: #111;
     color: white;
-    min-height: 64px;
+    min-height: 92px;
     display: flex;
     align-items: center;
-    padding: 10px 18px;
-    gap: 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: 18px 35px;
+    gap: 35px;
 }
 
 .logo {
-    font-size: 21px;
+    font-size: 32px;
     font-weight: bold;
     white-space: nowrap;
+}
+
+.logo span {
+    color: #f2c744;
 }
 
 .navigation {
     display: flex;
-    gap: 5px;
-    flex: 1;
+    align-items: center;
+    gap: 8px;
     overflow-x: auto;
+    flex: 1;
 }
 
-.navigation button {
+.nav-button {
     background: transparent;
     color: white;
     border: none;
-    padding: 10px 12px;
-    border-radius: 5px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 16px;
     white-space: nowrap;
 }
 
-.navigation button:hover,
-.navigation button.active {
-    background: #f4c400;
+.nav-button:hover,
+.nav-button.active {
+    background: #f2c744;
     color: #111;
 }
 
 .logout-button {
-    background: #222;
+    background: #111;
+    border: 2px solid #666;
     color: white;
-    border: 1px solid #666;
-    border-radius: 6px;
-    padding: 9px 13px;
+    padding: 13px 22px;
+    border-radius: 10px;
+    font-size: 16px;
     white-space: nowrap;
 }
 
-/* MAIN */
+.logout-button:hover {
+    background: #333;
+}
 
-#pageContent {
-    max-width: 1200px;
+.content {
+    max-width: 1250px;
     margin: auto;
-    padding: 25px;
+    padding: 45px 35px;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(250px, 1fr)
-    );
-    gap: 18px;
+.page-title {
+    font-size: 48px;
+    margin: 0 0 35px;
 }
+
+/* =========================
+   GENERAL CARDS
+========================= */
 
 .card {
     background: white;
-    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+
+.notice {
+    background: #fff9dc;
+    border-left: 10px solid #f2c744;
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    padding: 25px;
+    margin-bottom: 40px;
+}
+
+.notice h2 {
+    margin-top: 0;
+}
+
+/* =========================
+   COURSES
+========================= */
+
+.section-title {
+    font-size: 36px;
+    margin: 35px 0 25px;
 }
 
 .course-card {
-    border-top: 5px solid #f4c400;
+    background: white;
+    border-radius: 15px;
+    border-top: 10px solid #f2c744;
+    padding: 35px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
 }
 
 .course-code {
+    font-size: 28px;
     color: #777;
     font-weight: bold;
 }
 
-.muted {
-    color: #777;
+.course-name {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 18px 0 35px;
 }
 
-.open-button {
+.course-average {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.open-course {
     background: #111;
     color: white;
     border: none;
-    border-radius: 6px;
-    padding: 10px 15px;
-    margin-top: 8px;
+    padding: 16px 28px;
+    border-radius: 10px;
+    font-size: 17px;
 }
 
-.notice {
-    background: #fff8d6;
-    border-left: 5px solid #f4c400;
-    padding: 15px;
-    border-radius: 6px;
-    margin-bottom: 20px;
+.open-course:hover {
+    background: #333;
 }
 
-/* TABLES */
+/* =========================
+   TABLES
+========================= */
 
 .table-container {
     background: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow-x: auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,.12);
+    margin-bottom: 30px;
 }
 
 table {
@@ -213,88 +256,120 @@ table {
 th {
     background: #111;
     color: white;
-    padding: 14px;
     text-align: left;
+    padding: 17px;
 }
 
 td {
-    padding: 14px;
-    border-bottom: 1px solid #eee;
+    padding: 17px;
+    border-bottom: 1px solid #ddd;
 }
 
-.grade {
+tr:last-child td {
+    border-bottom: none;
+}
+
+.grade-good {
     font-weight: bold;
 }
 
-.not-graded {
-    color: #777;
+/* =========================
+   COURSE PAGE
+========================= */
+
+.course-header {
+    background: #111;
+    color: white;
+    border-radius: 15px;
+    padding: 35px;
+    margin-bottom: 25px;
 }
 
-/* COURSE TABS */
+.course-header .course-code {
+    color: #f2c744;
+}
 
 .course-tabs {
     display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin: 18px 0;
-}
-
-.course-tabs button {
+    gap: 8px;
+    overflow-x: auto;
     background: white;
-    border: 1px solid #ccc;
-    padding: 9px 13px;
-    border-radius: 6px;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 25px;
 }
 
-.course-tabs button.active {
-    background: #f4c400;
-    border-color: #f4c400;
+.course-tab {
+    border: none;
+    background: #eee;
+    padding: 13px 20px;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+.course-tab.active {
+    background: #f2c744;
+    color: #111;
     font-weight: bold;
 }
 
-/* LIST */
-
-.list-item {
-    padding: 15px 0;
-    border-bottom: 1px solid #eee;
-}
-
-/* PROFILE */
+/* =========================
+   PROFILE
+========================= */
 
 .profile-card {
-    max-width: 700px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
 }
 
 .profile-header {
+    background: #111;
+    color: white;
+    padding: 35px;
     display: flex;
     align-items: center;
-    gap: 18px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 20px;
+    gap: 25px;
 }
 
 .profile-avatar {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
-    background: #111;
-    color: #f4c400;
+    background: #f2c744;
+    color: #111;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 25px;
+    align-items: center;
+    font-size: 35px;
     font-weight: bold;
 }
 
-.profile-info {
-    display: grid;
-    grid-template-columns: 180px 1fr;
+.profile-header h2 {
+    margin: 0;
+    font-size: 30px;
 }
 
-.profile-info div {
-    padding: 14px 5px;
-    border-bottom: 1px solid #eee;
+.profile-header p {
+    margin: 7px 0 0;
+    color: #ddd;
+}
+
+.profile-info {
+    padding: 30px;
+}
+
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-row:last-child {
+    border-bottom: none;
 }
 
 .profile-label {
@@ -302,250 +377,312 @@ td {
     color: #666;
 }
 
-/* MOBILE */
+.profile-value {
+    text-align: right;
+    font-weight: 500;
+}
 
-@media(max-width:800px) {
+/* =========================
+   MESSAGES / DISCUSSIONS
+========================= */
+
+.message {
+    border-left: 6px solid #f2c744;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+.message h3 {
+    margin-top: 0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
 
     .topbar {
+        padding: 18px;
+        gap: 18px;
         flex-wrap: wrap;
-        align-items: flex-start;
+    }
+
+    .logo {
+        font-size: 27px;
     }
 
     .navigation {
-        width: 100%;
         order: 3;
+        width: 100%;
     }
 
-    #pageContent {
-        padding: 16px;
+    .logout-button {
+        margin-left: auto;
     }
 
-    .profile-info {
-        grid-template-columns: 1fr;
+    .content {
+        padding: 30px 20px;
     }
 
+    .page-title {
+        font-size: 40px;
+    }
+
+    .course-name {
+        font-size: 27px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-row {
+        flex-direction: column;
+    }
+
+    .profile-value {
+        text-align: left;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
+<!-- =========================
+     LOGIN
+========================= -->
 
-<section id="loginPage">
+<div id="loginPage">
 
-<div class="login-box">
+    <div class="login-card">
 
-<div class="login-logo">
-Blackboard
-</div>
+        <div class="login-logo">
+            Student <span>Portal</span>
+        </div>
 
-<p class="login-subtitle">
-Sign in to continue
-</p>
+        <h2>Sign In</h2>
 
-<form id="loginForm">
+        <form id="loginForm">
 
-<label>
-Username
-</label>
+            <label for="username">Username</label>
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter username"
+                required
+            >
 
-<input
-id="username"
-type="text"
-required
->
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                required
+            >
 
-<label>
-Password
-</label>
+            <button class="login-button" type="submit">
+                Log In
+            </button>
 
-<input
-id="password"
-type="password"
-required
->
+        </form>
 
-<button
-type="submit"
-class="login-button"
->
-Login
-</button>
-
-</form>
+    </div>
 
 </div>
 
-</section>
 
+<!-- =========================
+     PORTAL
+========================= -->
 
-<!-- PORTAL -->
+<div id="portal">
 
-<section id="portal">
+    <header class="topbar">
 
-<header class="topbar">
+        <div class="logo">
+            Student <span>Portal</span>
+        </div>
 
-<div class="logo">
-Blackboard
+        <nav class="navigation">
+
+            <button class="nav-button" data-page="dashboard">
+                Dashboard
+            </button>
+
+            <button class="nav-button" data-page="courses">
+                Courses
+            </button>
+
+            <button class="nav-button" data-page="assignments">
+                Assignments
+            </button>
+
+            <button class="nav-button" data-page="grades">
+                Grades
+            </button>
+
+            <button class="nav-button" data-page="calendar">
+                Calendar
+            </button>
+
+            <button class="nav-button" data-page="messages">
+                Messages
+            </button>
+
+            <button class="nav-button" data-page="discussions">
+                Discussions
+            </button>
+
+            <button class="nav-button" data-page="profile">
+                Profile
+            </button>
+
+        </nav>
+
+        <button class="logout-button" id="logoutButton">
+            Log Out
+        </button>
+
+    </header>
+
+    <main class="content" id="mainContent"></main>
+
 </div>
-
-<nav class="navigation">
-
-<button data-page="dashboard">
-Dashboard
-</button>
-
-<button data-page="courses">
-Courses
-</button>
-
-<button data-page="assignments">
-Assignments
-</button>
-
-<button data-page="grades">
-Grades
-</button>
-
-<button data-page="calendar">
-Calendar
-</button>
-
-<button data-page="messages">
-Messages
-</button>
-
-<button data-page="discussions">
-Discussions
-</button>
-
-<button data-page="profile">
-Profile
-</button>
-
-</nav>
-
-<button
-id="logoutButton"
-class="logout-button"
->
-Log Out
-</button>
-
-</header>
-
-<main id="pageContent"></main>
-
-</section>
 
 
 <script>
 
 /* =========================
-   COURSES
+   COURSE DATA
 ========================= */
 
 const courses = [
 
-{
-code: "ENGL 1102",
-title: "English Composition II",
+    {
+        code: "ENGL 1102",
+        name: "English Composition II",
+        assignments: [
 
-assignments: [
+            ["September 7", "Narrative Writing Workshop", 88],
+            ["September 14", "Rhetorical Analysis", 94],
+            ["September 21", "Source Evaluation Exercise", 91],
+            ["September 25", "Argument Essay Draft", 96],
+            ["September 28", "Citation Practice", 89],
 
-["September 7", "Narrative Writing Workshop", 88],
-["September 14", "Rhetorical Analysis", 94],
-["September 21", "Source Evaluation Exercise", 91],
-["September 25", "Argument Essay Draft", 96],
-["September 28", "Citation Practice", 89],
+            ["October 2", "Research Proposal", null],
+            ["October 5", "Literary Analysis", null],
+            ["October 11", "English Composition II Midterm", null],
+            ["October 16", "Peer Review Portfolio", null],
+            ["October 11", "Research Paper", null]
 
-["October 2", "Research Proposal", null],
-["October 5", "Literary Analysis", null],
-["October 11", "English Composition II Midterm", null],
-["October 16", "Peer Review Portfolio", null],
-["October 11", "Research Paper", null]
+        ]
+    },
 
-]
-},
+    {
+        code: "MATH 1411",
+        name: "College Algebra",
+        assignments: [
 
-{
-code: "MATH 1411",
-title: "College Algebra",
+            ["September 6", "Linear Equations Quiz", 84],
+            ["September 12", "Functions Homework", 91],
+            ["September 18", "Polynomial Practice", 86],
+            ["September 23", "Quadratic Equations Quiz", 90],
+            ["September 27", "Graphing Functions", 83],
 
-assignments: [
+            ["October 1", "Exponential Functions", null],
+            ["October 5", "Systems of Equations", null],
+            ["October 11", "Math 1411 Midterm", null],
+            ["October 15", "Inequality Review", null],
+            ["October 18", "Algebra Problem Set", null]
 
-["September 6", "Linear Equations Quiz", 84],
-["September 12", "Functions Homework", 91],
-["September 18", "Polynomial Practice", 86],
-["September 23", "Quadratic Equations Quiz", 90],
-["September 27", "Graphing Functions", 83],
+        ]
+    },
 
-["October 1", "Exponential Functions", null],
-["October 5", "Systems of Equations", null],
-["October 11", "Math 1411 Midterm", null],
-["October 15", "Inequality Review", null],
-["October 18", "Algebra Problem Set", null]
+    {
+        code: "PSYC 2112",
+        name: "Psychology II",
+        assignments: [
 
-]
-},
+            ["September 6", "Learning & Conditioning Quiz", 91],
+            ["September 12", "Memory Reflection", 88],
+            ["September 18", "Development Study", 93],
+            ["September 22", "Personality Worksheet", 90],
+            ["September 27", "Social Psychology Quiz", 86],
 
-{
-code: "PSYC 2112",
-title: "Psychology II",
+            ["October 1", "Emotion Discussion", null],
+            ["October 5", "Psychological Disorders Review", null],
+            ["October 11", "Psychology II Midterm", null],
+            ["October 16", "Research Methods Assignment", null],
+            ["October 20", "Final Review Journal", null]
 
-assignments: [
+        ]
+    },
 
-["September 6", "Learning & Conditioning Quiz", 91],
-["September 12", "Memory Reflection", 88],
-["September 18", "Development Study", 93],
-["September 22", "Personality Worksheet", 90],
-["September 27", "Social Psychology Quiz", 86],
+    {
+        code: "POLS 1101",
+        name: "American Government",
+        assignments: [
 
-["October 1", "Emotion Discussion", null],
-["October 5", "Psychological Disorders Review", null],
-["October 11", "Psychology II Midterm", null],
-["October 16", "Research Methods Assignment", null],
-["October 20", "Final Review Journal", null]
+            ["September 6", "Constitution Study Guide", 94],
+            ["September 12", "Federalism Quiz", 89],
+            ["September 18", "Civil Liberties Worksheet", 96],
+            ["September 23", "Congress Research", 91],
+            ["September 27", "Presidential Powers Quiz", 88],
 
-]
-},
+            ["October 1", "Supreme Court Case Brief", null],
+            ["October 5", "Voting & Elections Review", null],
+            ["October 11", "American Government Midterm", null],
+            ["October 16", "Political Parties Discussion", null],
+            ["October 20", "Public Policy Analysis", null]
 
-{
-code: "POLS 1101",
-title: "American Government",
-
-assignments: [
-
-["September 6", "Constitution Study Guide", 94],
-["September 12", "Federalism Quiz", 89],
-["September 18", "Civil Liberties Worksheet", 96],
-["September 23", "Congress Research", 91],
-["September 27", "Presidential Powers Quiz", 88],
-
-["October 1", "Supreme Court Case Brief", null],
-["October 5", "Voting & Elections Review", null],
-["October 11", "American Government Midterm", null],
-["October 16", "Political Parties Discussion", null],
-["October 20", "Public Policy Analysis", null]
-
-]
-}
+        ]
+    }
 
 ];
 
 
 /* =========================
-   UPCOMING
+   UPCOMING ASSIGNMENTS
 ========================= */
 
 const upcoming = [
 
-["ENGL 1102", "English Composition II Midterm", "October 11"],
-["MATH 1411", "Math 1411 Midterm", "October 11"],
-["PSYC 2112", "Psychology II Midterm", "October 11"],
-["POLS 1101", "American Government Midterm", "October 11"],
-["ENGL 1102", "Research Paper", "October 11"]
+    ["ENGL 1102", "English Composition II Midterm", "October 11"],
+
+    ["MATH 1411", "Math 1411 Midterm", "October 11"],
+
+    ["PSYC 2112", "Psychology II Midterm", "October 11"],
+
+    ["POLS 1101", "American Government Midterm", "October 11"],
+
+    ["ENGL 1102", "Research Paper", "October 11"]
+
+];
+
+
+/* =========================
+   CALENDAR ASSIGNMENTS
+========================= */
+
+const calendarAssignments = [
+
+    ["October 11", "English Composition II Midterm", "ENGL 1102"],
+    ["October 11", "Math 1411 Midterm", "MATH 1411"],
+    ["October 11", "Psychology II Midterm", "PSYC 2112"],
+    ["October 11", "American Government Midterm", "POLS 1101"],
+    ["October 11", "Research Paper", "ENGL 1102"],
+
+    ["October 15", "Inequality Review", "MATH 1411"],
+    ["October 16", "Peer Review Portfolio", "ENGL 1102"],
+    ["October 16", "Research Methods Assignment", "PSYC 2112"],
+    ["October 18", "Algebra Problem Set", "MATH 1411"],
+    ["October 20", "Final Review Journal", "PSYC 2112"],
+    ["October 20", "Public Policy Analysis", "POLS 1101"]
 
 ];
 
@@ -559,49 +696,45 @@ let selectedCourse = null;
 
 function showPage(page) {
 
-document
-.querySelectorAll(".navigation button")
-.forEach(button => {
+    document.querySelectorAll(".nav-button").forEach(button => {
+        button.classList.remove("active");
 
-button.classList.toggle(
-"active",
-button.dataset.page === page
-);
+        if (button.dataset.page === page) {
+            button.classList.add("active");
+        }
+    });
 
-});
+    if (page === "dashboard") {
+        showDashboard();
+    }
 
+    if (page === "courses") {
+        showCourses();
+    }
 
-if(page === "dashboard") {
-showDashboard();
-}
+    if (page === "assignments") {
+        showAssignments();
+    }
 
-else if(page === "courses") {
-showCourses();
-}
+    if (page === "grades") {
+        showGrades();
+    }
 
-else if(page === "assignments") {
-showAssignments();
-}
+    if (page === "calendar") {
+        showCalendar();
+    }
 
-else if(page === "grades") {
-showGrades();
-}
+    if (page === "messages") {
+        showMessages();
+    }
 
-else if(page === "calendar") {
-showCalendar();
-}
+    if (page === "discussions") {
+        showDiscussions();
+    }
 
-else if(page === "messages") {
-showMessages();
-}
-
-else if(page === "discussions") {
-showDiscussions();
-}
-
-else if(page === "profile") {
-showProfile();
-}
+    if (page === "profile") {
+        showProfile();
+    }
 
 }
 
@@ -612,91 +745,115 @@ showProfile();
 
 function showDashboard() {
 
-const page =
-document.getElementById("pageContent");
+    let html = `
 
-page.innerHTML = `
+        <h1 class="page-title">
+            Dashboard
+        </h1>
 
-<h1>
-Dashboard
-</h1>
+        <div class="notice">
 
-<div class="notice">
+            <h2>Welcome back!</h2>
 
-<strong>
-Welcome back, Makayla!
-</strong>
+            <p>
+                Here are your current courses and upcoming assignments.
+            </p>
 
-<br>
+        </div>
 
-Here are your current courses
-and upcoming assignments.
+        <h2 class="section-title">
+            My Courses
+        </h2>
 
-</div>
+    `;
 
-<h2>
-My Courses
-</h2>
+    courses.forEach(course => {
 
-<div class="grid">
+        html += `
 
-${courses.map(course => `
+            <div class="course-card">
 
-<div class="card course-card">
+                <div class="course-code">
+                    ${course.code}
+                </div>
 
-<div class="course-code">
-${course.code}
-</div>
+                <div class="course-name">
+                    ${course.name}
+                </div>
 
-<h3>
-${course.title}
-</h3>
+                <div class="course-average">
+                    Current course average: <strong>-</strong>
+                </div>
 
-<p>
-Current course average:
-<strong>-</strong>
-</p>
+                <button
+                    class="open-course"
+                    onclick="openCourse('${course.code}')"
+                >
+                    Open Course
+                </button>
 
-<button
-class="open-button"
-onclick="openCourse('${course.code}')"
->
-Open Course
-</button>
+            </div>
 
-</div>
+        `;
 
-`).join("")}
+    });
 
-</div>
 
-<h2>
-Upcoming Assignments
-</h2>
+    html += `
 
-<div class="card">
+        <h2 class="section-title">
+            Upcoming Assignments
+        </h2>
 
-${upcoming.map(item => `
+        <div class="table-container">
 
-<div class="list-item">
+            <table>
 
-<strong>
-${item[1]}
-</strong>
+                <thead>
 
-<br>
+                    <tr>
+                        <th>Course</th>
+                        <th>Assignment</th>
+                        <th>Due</th>
+                    </tr>
 
-<span class="muted">
-${item[0]} · Due ${item[2]}
-</span>
+                </thead>
 
-</div>
+                <tbody>
 
-`).join("")}
+    `;
 
-</div>
 
-`;
+    upcoming.forEach(item => {
+
+        html += `
+
+            <tr>
+
+                <td>${item[0]}</td>
+
+                <td>${item[1]}</td>
+
+                <td>${item[2]}</td>
+
+            </tr>
+
+        `;
+
+    });
+
+
+    html += `
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    `;
+
+    document.getElementById("mainContent").innerHTML = html;
 
 }
 
@@ -707,48 +864,46 @@ ${item[0]} · Due ${item[2]}
 
 function showCourses() {
 
-const page =
-document.getElementById("pageContent");
+    let html = `
 
-page.innerHTML = `
+        <h1 class="page-title">
+            Courses
+        </h1>
 
-<h1>
-Courses
-</h1>
+    `;
 
-<div class="grid">
+    courses.forEach(course => {
 
-${courses.map(course => `
+        html += `
 
-<div class="card course-card">
+            <div class="course-card">
 
-<div class="course-code">
-${course.code}
-</div>
+                <div class="course-code">
+                    ${course.code}
+                </div>
 
-<h2>
-${course.title}
-</h2>
+                <div class="course-name">
+                    ${course.name}
+                </div>
 
-<p>
-Current course average:
-<strong>-</strong>
-</p>
+                <div class="course-average">
+                    Current course average: <strong>-</strong>
+                </div>
 
-<button
-class="open-button"
-onclick="openCourse('${course.code}')"
->
-Open Course
-</button>
+                <button
+                    class="open-course"
+                    onclick="openCourse('${course.code}')"
+                >
+                    Open Course
+                </button>
 
-</div>
+            </div>
 
-`).join("")}
+        `;
 
-</div>
+    });
 
-`;
+    document.getElementById("mainContent").innerHTML = html;
 
 }
 
@@ -759,99 +914,79 @@ Open Course
 
 function showAssignments() {
 
-const page =
-document.getElementById("pageContent");
+    let html = `
 
-let rows = "";
+        <h1 class="page-title">
+            Assignments
+        </h1>
 
-courses.forEach(course => {
+    `;
 
-course.assignments.forEach(assignment => {
+    courses.forEach(course => {
 
-rows += `
+        html += `
 
-<tr>
+            <h2 class="section-title">
+                ${course.code} — ${course.name}
+            </h2>
 
-<td>
-${course.code}
-</td>
+            <div class="table-container">
 
-<td>
-${assignment[1]}
-</td>
+                <table>
 
-<td>
-${assignment[0]}
-</td>
+                    <thead>
 
-<td class="${
-assignment[2] === null
-? "not-graded"
-: "grade"
-}">
+                        <tr>
+                            <th>Date</th>
+                            <th>Assignment</th>
+                            <th>Grade</th>
+                        </tr>
 
-${
-assignment[2] === null
-? "Not Graded"
-: assignment[2] + "%"
-}
+                    </thead>
 
-</td>
+                    <tbody>
 
-</tr>
-
-`;
-
-});
-
-});
+        `;
 
 
-page.innerHTML = `
+        course.assignments.forEach(assignment => {
 
-<h1>
-Assignments
-</h1>
+            const grade = assignment[2] === null
+                ? "Not Graded"
+                : assignment[2];
 
-<div class="table-container">
+            html += `
 
-<table>
+                <tr>
 
-<thead>
+                    <td>${assignment[0]}</td>
 
-<tr>
+                    <td>${assignment[1]}</td>
 
-<th>
-Course
-</th>
+                    <td class="${assignment[2] !== null ? "grade-good" : ""}">
+                        ${grade}
+                    </td>
 
-<th>
-Assignment
-</th>
+                </tr>
 
-<th>
-Due Date
-</th>
+            `;
 
-<th>
-Grade
-</th>
+        });
 
-</tr>
 
-</thead>
+        html += `
 
-<tbody>
+                    </tbody>
 
-${rows}
+                </table>
 
-</tbody>
+            </div>
 
-</table>
+        `;
 
-</div>
+    });
 
-`;
+    document.getElementById("mainContent").innerHTML = html;
 
 }
 
@@ -862,56 +997,53 @@ ${rows}
 
 function showGrades() {
 
-const page =
-document.getElementById("pageContent");
+    let html = `
 
-page.innerHTML = `
+        <h1 class="page-title">
+            Grades
+        </h1>
 
-<h1>
-Grades
-</h1>
+        <div class="notice">
 
-<div class="notice">
+            <h2>Grades</h2>
 
-Current course averages are not posted.
+            <p>
+                Individual graded assignments are shown below.
+                Current course averages are not posted.
+            </p>
 
-</div>
+        </div>
 
-<div class="grid">
+    `;
 
-${courses.map(course => `
 
-<div class="card">
+    courses.forEach(course => {
 
-<div class="course-code">
-${course.code}
-</div>
+        html += `
 
-<h3>
-${course.title}
-</h3>
+            <div class="card">
 
-<div
-style="
-font-size:32px;
-font-weight:bold;
-margin:12px 0;
-"
->
--
-</div>
+                <h2>
+                    ${course.code} — ${course.name}
+                </h2>
 
-<span class="muted">
-Current course average
-</span>
+                <p>
+                    Current Course Average:
+                    <strong>-</strong>
+                </p>
 
-</div>
+                <p>
+                    Current course average is not posted.
+                </p>
 
-`).join("")}
+            </div>
 
-</div>
+        `;
 
-`;
+    });
+
+
+    document.getElementById("mainContent").innerHTML = html;
 
 }
 
@@ -922,88 +1054,61 @@ Current course average
 
 function showCalendar() {
 
-const page =
-document.getElementById("pageContent");
+    let html = `
 
-page.innerHTML = `
+        <h1 class="page-title">
+            Calendar
+        </h1>
 
-<h1>
-Calendar
-</h1>
+        <div class="table-container">
 
-<div class="card">
+            <table>
 
-<h2>
-October
-</h2>
+                <thead>
 
-${upcoming.map(item => `
+                    <tr>
+                        <th>Date</th>
+                        <th>Assignment</th>
+                        <th>Course</th>
+                    </tr>
 
-<div class="list-item">
+                </thead>
 
-<strong>
-October 11
-</strong>
+                <tbody>
 
-—
+    `;
 
-${item[1]}
 
-<br>
+    calendarAssignments.forEach(item => {
 
-<span class="muted">
-${item[0]}
-</span>
+        html += `
 
-</div>
+            <tr>
 
-`).join("")}
+                <td>${item[0]}</td>
 
-<div class="list-item">
-<strong>October 15</strong>
-— Inequality Review
-<br>
-<span class="muted">MATH 1411</span>
-</div>
+                <td>${item[1]}</td>
 
-<div class="list-item">
-<strong>October 16</strong>
-— Peer Review Portfolio
-<br>
-<span class="muted">ENGL 1102</span>
-</div>
+                <td>${item[2]}</td>
 
-<div class="list-item">
-<strong>October 16</strong>
-— Research Methods Assignment
-<br>
-<span class="muted">PSYC 2112</span>
-</div>
+            </tr>
 
-<div class="list-item">
-<strong>October 18</strong>
-— Algebra Problem Set
-<br>
-<span class="muted">MATH 1411</span>
-</div>
+        `;
 
-<div class="list-item">
-<strong>October 20</strong>
-— Final Review Journal
-<br>
-<span class="muted">PSYC 2112</span>
-</div>
+    });
 
-<div class="list-item">
-<strong>October 20</strong>
-— Public Policy Analysis
-<br>
-<span class="muted">POLS 1101</span>
-</div>
 
-</div>
+    html += `
 
-`;
+                </tbody>
+
+            </table>
+
+        </div>
+
+    `;
+
+    document.getElementById("mainContent").innerHTML = html;
 
 }
 
@@ -1014,55 +1119,39 @@ ${item[0]}
 
 function showMessages() {
 
-document.getElementById("pageContent").innerHTML = `
+    document.getElementById("mainContent").innerHTML = `
 
-<h1>
-Messages
-</h1>
+        <h1 class="page-title">
+            Messages
+        </h1>
 
-<div class="card">
+        <div class="message">
 
-<div class="list-item">
+            <h3>
+                Welcome to your course messages
+            </h3>
 
-<strong>
-Professor Smith
-</strong>
+            <p>
+                Your instructors may post announcements,
+                reminders, and course-related messages here.
+            </p>
 
-<br>
+        </div>
 
-Your research proposal
-instructions are posted.
+        <div class="message">
 
-</div>
+            <h3>
+                Assignment Reminder
+            </h3>
 
-<div class="list-item">
+            <p>
+                Several assignments are due October 11.
+                Check your calendar for details.
+            </p>
 
-<strong>
-Advising
-</strong>
+        </div>
 
-<br>
-
-Registration information is available.
-
-</div>
-
-<div class="list-item">
-
-<strong>
-Student Services
-</strong>
-
-<br>
-
-Please review your upcoming
-academic deadlines.
-
-</div>
-
-</div>
-
-`;
+    `;
 
 }
 
@@ -1073,53 +1162,52 @@ academic deadlines.
 
 function showDiscussions() {
 
-document.getElementById("pageContent").innerHTML = `
+    document.getElementById("mainContent").innerHTML = `
 
-<h1>
-Discussions
-</h1>
+        <h1 class="page-title">
+            Discussions
+        </h1>
 
-<div class="card">
+        <div class="message">
 
-<div class="list-item">
+            <h3>
+                Course Discussion Boards
+            </h3>
 
-<strong>
-English Composition II
-</strong>
+            <p>
+                Participate in course discussions and
+                respond to classmates here.
+            </p>
 
-<br>
+        </div>
 
-Research Topics Discussion
+        <div class="message">
 
-</div>
+            <h3>
+                Psychology II
+            </h3>
 
-<div class="list-item">
+            <p>
+                Current discussion topics are available
+                inside the Psychology II course.
+            </p>
 
-<strong>
-Psychology II
-</strong>
+        </div>
 
-<br>
+        <div class="message">
 
-Emotion and Behavior Discussion
+            <h3>
+                American Government
+            </h3>
 
-</div>
+            <p>
+                Review the latest discussion topics for
+                American Government.
+            </p>
 
-<div class="list-item">
+        </div>
 
-<strong>
-American Government
-</strong>
-
-<br>
-
-Constitutional Interpretation
-
-</div>
-
-</div>
-
-`;
+    `;
 
 }
 
@@ -1130,85 +1218,106 @@ Constitutional Interpretation
 
 function showProfile() {
 
-document.getElementById("pageContent").innerHTML = `
+    document.getElementById("mainContent").innerHTML = `
 
-<h1>
-Student Profile
-</h1>
+        <h1 class="page-title">
+            Profile
+        </h1>
 
-<div class="card profile-card">
+        <div class="profile-card">
 
-<div class="profile-header">
+            <div class="profile-header">
 
-<div class="profile-avatar">
-MB
-</div>
+                <div class="profile-avatar">
+                    MB
+                </div>
 
-<div>
+                <div>
 
-<h2 style="margin:0;">
-Makayla Brown
-</h2>
+                    <h2>
+                        Makayla Brown
+                    </h2>
 
-<p class="muted">
-Nursing Student
-</p>
+                    <p>
+                        Student Profile
+                    </p>
 
-</div>
+                </div>
 
-</div>
-
-<div class="profile-info">
-
-<div class="profile-label">
-Name
-</div>
-
-<div>
-Makayla Brown
-</div>
+            </div>
 
 
-<div class="profile-label">
-School Email
-</div>
+            <div class="profile-info">
 
-<div>
-makaylabrown@westgatech.edu
-</div>
+                <div class="profile-row">
 
+                    <div class="profile-label">
+                        Name
+                    </div>
 
-<div class="profile-label">
-Student ID
-</div>
+                    <div class="profile-value">
+                        Makayla Brown
+                    </div>
 
-<div>
-870745874
-</div>
+                </div>
 
 
-<div class="profile-label">
-Student Status
-</div>
+                <div class="profile-row">
 
-<div>
-Active
-</div>
+                    <div class="profile-label">
+                        School Email
+                    </div>
+
+                    <div class="profile-value">
+                        makaylabrown@westgatech.edu
+                    </div>
+
+                </div>
 
 
-<div class="profile-label">
-Program
-</div>
+                <div class="profile-row">
 
-<div>
-Nursing
-</div>
+                    <div class="profile-label">
+                        Student ID
+                    </div>
 
-</div>
+                    <div class="profile-value">
+                        870745874
+                    </div>
 
-</div>
+                </div>
 
-`;
+
+                <div class="profile-row">
+
+                    <div class="profile-label">
+                        Student Status
+                    </div>
+
+                    <div class="profile-value">
+                        Active
+                    </div>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <div class="profile-label">
+                        Program
+                    </div>
+
+                    <div class="profile-value">
+                        Nursing
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
 
 }
 
@@ -1219,12 +1328,9 @@ Nursing
 
 function openCourse(code) {
 
-selectedCourse =
-courses.find(course =>
-course.code === code
-);
+    selectedCourse = courses.find(course => course.code === code);
 
-showCourseHome();
+    showCourseHome();
 
 }
 
@@ -1235,87 +1341,72 @@ showCourseHome();
 
 function showCourseHome() {
 
-const page =
-document.getElementById("pageContent");
+    const course = selectedCourse;
 
-const course =
-selectedCourse;
+    document.getElementById("mainContent").innerHTML = `
 
-page.innerHTML = `
+        <div class="course-header">
 
-<h1>
-${course.code} —
-${course.title}
-</h1>
+            <div class="course-code">
+                ${course.code}
+            </div>
 
-<div class="course-tabs">
+            <h1>
+                ${course.name}
+            </h1>
 
-<button
-class="active"
-onclick="showCourseHome()"
->
-Home
-</button>
+            <p>
+                Current course average: -
+            </p>
 
-<button
-onclick="showCourseAssignments()"
->
-Assignments
-</button>
+        </div>
 
-<button
-onclick="showCourseGrades()"
->
-Grades
-</button>
 
-<button
-onclick="showCourseMaterials()"
->
-Materials
-</button>
+        <div class="course-tabs">
 
-<button
-onclick="showCourseAnnouncements()"
->
-Announcements
-</button>
+            <button class="course-tab active"
+                onclick="showCourseHome()">
+                Home
+            </button>
 
-</div>
+            <button class="course-tab"
+                onclick="showCourseAssignments()">
+                Assignments
+            </button>
 
-<div class="notice">
+            <button class="course-tab"
+                onclick="showCourseGrades()">
+                Grades
+            </button>
 
-<strong>
-Course average:
-</strong>
+            <button class="course-tab"
+                onclick="showCourseMaterials()">
+                Materials
+            </button>
 
--
+            <button class="course-tab"
+                onclick="showCourseAnnouncements()">
+                Announcements
+            </button>
 
-<br>
+        </div>
 
-Current course average is not posted.
 
-</div>
+        <div class="card">
 
-<div class="card">
+            <h2>
+                Welcome to ${course.name}
+            </h2>
 
-<h2>
-Course Home
-</h2>
+            <p>
+                Course materials, assignments, grades,
+                and announcements are available using
+                the tabs above.
+            </p>
 
-<p>
-Welcome to ${course.title}.
-</p>
+        </div>
 
-<p>
-Use the tabs above to view
-assignments, grades, materials,
-and announcements.
-</p>
-
-</div>
-
-`;
+    `;
 
 }
 
@@ -1326,89 +1417,112 @@ and announcements.
 
 function showCourseAssignments() {
 
-const page =
-document.getElementById("pageContent");
+    const course = selectedCourse;
 
-const course =
-selectedCourse;
+    let html = `
 
-page.innerHTML = `
+        <div class="course-header">
 
-<h1>
-${course.code} —
-${course.title}
-</h1>
+            <div class="course-code">
+                ${course.code}
+            </div>
 
-<div class="course-tabs">
+            <h1>
+                ${course.name}
+            </h1>
 
-<button
-onclick="showCourseHome()"
->
-Home
-</button>
+        </div>
 
-<button class="active">
-Assignments
-</button>
 
-<button
-onclick="showCourseGrades()"
->
-Grades
-</button>
+        <div class="course-tabs">
 
-<button
-onclick="showCourseMaterials()"
->
-Materials
-</button>
+            <button class="course-tab"
+                onclick="showCourseHome()">
+                Home
+            </button>
 
-<button
-onclick="showCourseAnnouncements()"
->
-Announcements
-</button>
+            <button class="course-tab active"
+                onclick="showCourseAssignments()">
+                Assignments
+            </button>
 
-</div>
+            <button class="course-tab"
+                onclick="showCourseGrades()">
+                Grades
+            </button>
 
-<div class="card">
+            <button class="course-tab"
+                onclick="showCourseMaterials()">
+                Materials
+            </button>
 
-${course.assignments.map(assignment => `
+            <button class="course-tab"
+                onclick="showCourseAnnouncements()">
+                Announcements
+            </button>
 
-<div class="list-item">
+        </div>
 
-<strong>
-${assignment[1]}
-</strong>
 
-<br>
+        <div class="table-container">
 
-Due:
-${assignment[0]}
+            <table>
 
-<br>
+                <thead>
 
-<span class="${
-assignment[2] === null
-? "not-graded"
-: "grade"
-}">
+                    <tr>
+                        <th>Date</th>
+                        <th>Assignment</th>
+                        <th>Grade</th>
+                    </tr>
 
-${
-assignment[2] === null
-? "Not Graded"
-: assignment[2] + "%"
-}
+                </thead>
 
-</span>
+                <tbody>
 
-</div>
+    `;
 
-`).join("")}
 
-</div>
+    course.assignments.forEach(assignment => {
 
-`;
+        const grade = assignment[2] === null
+            ? "Not Graded"
+            : assignment[2];
+
+        html += `
+
+            <tr>
+
+                <td>
+                    ${assignment[0]}
+                </td>
+
+                <td>
+                    ${assignment[1]}
+                </td>
+
+                <td>
+                    ${grade}
+                </td>
+
+            </tr>
+
+        `;
+
+    });
+
+
+    html += `
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    `;
+
+    document.getElementById("mainContent").innerHTML = html;
 
 }
 
@@ -1419,93 +1533,71 @@ assignment[2] === null
 
 function showCourseGrades() {
 
-const page =
-document.getElementById("pageContent");
+    const course = selectedCourse;
 
-const course =
-selectedCourse;
+    document.getElementById("mainContent").innerHTML = `
 
-page.innerHTML = `
+        <div class="course-header">
 
-<h1>
-${course.code} — Grades
-</h1>
+            <div class="course-code">
+                ${course.code}
+            </div>
 
-<div class="course-tabs">
+            <h1>
+                ${course.name}
+            </h1>
 
-<button onclick="showCourseHome()">
-Home
-</button>
+        </div>
 
-<button onclick="showCourseAssignments()">
-Assignments
-</button>
 
-<button class="active">
-Grades
-</button>
+        <div class="course-tabs">
 
-<button onclick="showCourseMaterials()">
-Materials
-</button>
+            <button class="course-tab"
+                onclick="showCourseHome()">
+                Home
+            </button>
 
-<button onclick="showCourseAnnouncements()">
-Announcements
-</button>
+            <button class="course-tab"
+                onclick="showCourseAssignments()">
+                Assignments
+            </button>
 
-</div>
+            <button class="course-tab active"
+                onclick="showCourseGrades()">
+                Grades
+            </button>
 
-<div class="notice">
-Current course average is not posted.
-</div>
+            <button class="course-tab"
+                onclick="showCourseMaterials()">
+                Materials
+            </button>
 
-<div class="table-container">
+            <button class="course-tab"
+                onclick="showCourseAnnouncements()">
+                Announcements
+            </button>
 
-<table>
+        </div>
 
-<tr>
 
-<th>
-Assignment
-</th>
+        <div class="card">
 
-<th>
-Grade
-</th>
+            <h2>
+                Course Grades
+            </h2>
 
-</tr>
+            <p>
+                Current course average:
+                <strong>-</strong>
+            </p>
 
-${course.assignments.map(assignment => `
+            <p>
+                Current course average is not posted.
+            </p>
 
-<tr>
+        </div>
 
-<td>
-${assignment[1]}
-</td>
-
-<td class="${
-assignment[2] === null
-? "not-graded"
-: "grade"
-}">
-
-${
-assignment[2] === null
-? "Not Graded"
-: assignment[2] + "%"
-}
-
-</td>
-
-</tr>
-
-`).join("")}
-
-</table>
-
-</div>
-
-`;
+    `;
 
 }
 
@@ -1516,67 +1608,72 @@ assignment[2] === null
 
 function showCourseMaterials() {
 
-const page =
-document.getElementById("pageContent");
+    const course = selectedCourse;
 
-const course =
-selectedCourse;
+    document.getElementById("mainContent").innerHTML = `
 
-page.innerHTML = `
+        <div class="course-header">
 
-<h1>
-${course.code} — Materials
-</h1>
+            <div class="course-code">
+                ${course.code}
+            </div>
 
-<div class="course-tabs">
+            <h1>
+                ${course.name}
+            </h1>
 
-<button onclick="showCourseHome()">
-Home
-</button>
+        </div>
 
-<button onclick="showCourseAssignments()">
-Assignments
-</button>
 
-<button onclick="showCourseGrades()">
-Grades
-</button>
+        <div class="course-tabs">
 
-<button class="active">
-Materials
-</button>
+            <button class="course-tab"
+                onclick="showCourseHome()">
+                Home
+            </button>
 
-<button onclick="showCourseAnnouncements()">
-Announcements
-</button>
+            <button class="course-tab"
+                onclick="showCourseAssignments()">
+                Assignments
+            </button>
 
-</div>
+            <button class="course-tab"
+                onclick="showCourseGrades()">
+                Grades
+            </button>
 
-<div class="card">
+            <button class="course-tab active"
+                onclick="showCourseMaterials()">
+                Materials
+            </button>
 
-<div class="list-item">
-Course Syllabus
-</div>
+            <button class="course-tab"
+                onclick="showCourseAnnouncements()">
+                Announcements
+            </button>
 
-<div class="list-item">
-Lecture Notes
-</div>
+        </div>
 
-<div class="list-item">
-Study Guide
-</div>
 
-<div class="list-item">
-Weekly Readings
-</div>
+        <div class="card">
 
-<div class="list-item">
-Midterm Study Materials
-</div>
+            <h2>
+                Course Materials
+            </h2>
 
-</div>
+            <p>
+                Weekly course materials and study resources
+                will appear here.
+            </p>
 
-`;
+            <p>
+                Course readings and instructional materials
+                are organized by assignment and week.
+            </p>
+
+        </div>
+
+    `;
 
 }
 
@@ -1587,96 +1684,90 @@ Midterm Study Materials
 
 function showCourseAnnouncements() {
 
-const page =
-document.getElementById("pageContent");
+    const course = selectedCourse;
 
-const course =
-selectedCourse;
+    document.getElementById("mainContent").innerHTML = `
 
-page.innerHTML = `
+        <div class="course-header">
 
-<h1>
-${course.code} — Announcements
-</h1>
+            <div class="course-code">
+                ${course.code}
+            </div>
 
-<div class="course-tabs">
+            <h1>
+                ${course.name}
+            </h1>
 
-<button onclick="showCourseHome()">
-Home
-</button>
+        </div>
 
-<button onclick="showCourseAssignments()">
-Assignments
-</button>
 
-<button onclick="showCourseGrades()">
-Grades
-</button>
+        <div class="course-tabs">
 
-<button onclick="showCourseMaterials()">
-Materials
-</button>
+            <button class="course-tab"
+                onclick="showCourseHome()">
+                Home
+            </button>
 
-<button class="active">
-Announcements
-</button>
+            <button class="course-tab"
+                onclick="showCourseAssignments()">
+                Assignments
+            </button>
 
-</div>
+            <button class="course-tab"
+                onclick="showCourseGrades()">
+                Grades
+            </button>
 
-<div class="card">
+            <button class="course-tab"
+                onclick="showCourseMaterials()">
+                Materials
+            </button>
 
-<div class="list-item">
+            <button class="course-tab active"
+                onclick="showCourseAnnouncements()">
+                Announcements
+            </button>
 
-<strong>
-Midterm Information
-</strong>
+        </div>
 
-<br>
 
-Review the posted study materials
-before October 11.
+        <div class="message">
 
-</div>
+            <h3>
+                Course Announcement
+            </h3>
 
-<div class="list-item">
+            <p>
+                Check your assignments and calendar
+                regularly for upcoming coursework.
+            </p>
 
-<strong>
-Weekly Reminder
-</strong>
+        </div>
 
-<br>
-
-Check the assignments area
-for upcoming work.
-
-</div>
-
-</div>
-
-`;
+    `;
 
 }
 
 
 /* =========================
    LOGIN
+   PROFILE OPENS FIRST
 ========================= */
 
-document
-.getElementById("loginForm")
-.addEventListener("submit", function(event) {
+document.getElementById("loginForm").addEventListener("submit", function(e) {
 
-event.preventDefault();
+    e.preventDefault();
 
-document.getElementById("loginPage")
-.style.display = "none";
+    document.getElementById("loginPage").style.display = "none";
 
-document.getElementById("portal")
-.style.display = "block";
+    document.getElementById("portal").style.display = "block";
 
-showPage("dashboard");
+    /*
+       THIS IS THE IMPORTANT CHANGE:
+       Profile opens immediately after login.
+    */
 
-window.scrollTo(0, 0);
+    showPage("profile");
 
 });
 
@@ -1685,37 +1776,31 @@ window.scrollTo(0, 0);
    NAVIGATION
 ========================= */
 
-document
-.querySelectorAll(".navigation button")
-.forEach(button => {
+document.querySelectorAll(".nav-button").forEach(button => {
 
-button.addEventListener("click", function() {
+    button.addEventListener("click", function() {
 
-showPage(this.dataset.page);
+        showPage(this.dataset.page);
 
-});
+    });
 
 });
 
 
 /* =========================
-   LOGOUT
+   LOG OUT
 ========================= */
 
-document
-.getElementById("logoutButton")
-.addEventListener("click", function() {
+document.getElementById("logoutButton").addEventListener("click", function() {
 
-document.getElementById("portal")
-.style.display = "none";
+    document.getElementById("portal").style.display = "none";
 
-document.getElementById("loginPage")
-.style.display = "flex";
+    document.getElementById("loginPage").style.display = "flex";
 
-document.getElementById("loginForm")
-.reset();
+    document.getElementById("loginForm").reset();
 
 });
+
 
 </script>
 
