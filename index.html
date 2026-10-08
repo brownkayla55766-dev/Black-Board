@@ -2,353 +2,146 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Student Portal</title>
 
 <style>
 *{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f4f4f4;
-  color:#222;
-}
-
+body{margin:0;font-family:Arial,sans-serif;background:#f4f4f4;color:#222}
 button,input{font:inherit}
 
 .login{
-  min-height:100vh;
-  background:#111;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+ min-height:100vh;background:#111;display:flex;align-items:center;
+ justify-content:center;padding:20px
 }
-
 .login-box{
-  width:100%;
-  max-width:390px;
-  background:white;
-  border-radius:8px;
-  overflow:hidden;
-  box-shadow:0 10px 35px #0008;
+ width:100%;max-width:390px;background:#fff;border-radius:8px;
+ overflow:hidden;box-shadow:0 10px 35px #0008
 }
-
 .login-head{
-  background:#111;
-  color:white;
-  padding:30px;
-  text-align:center;
-  border-bottom:6px solid #f5c400;
+ background:#111;color:#fff;text-align:center;padding:30px;
+ border-bottom:6px solid #f5c400
 }
-
-.login-head h1{
-  margin:0 0 8px;
-  font-size:28px;
-}
-
-.login-head p{
-  margin:0;
-  color:#ddd;
-}
-
-.login-form{
-  padding:28px;
-}
-
-.login-form label{
-  display:block;
-  font-weight:bold;
-  margin:14px 0 6px;
-}
-
+.login-head h1{margin:0 0 8px;font-size:28px}
+.login-head p{margin:0;color:#ddd}
+.login-form{padding:28px}
+.login-form label{display:block;font-weight:bold;margin:14px 0 6px}
 .login-form input{
-  width:100%;
-  padding:13px;
-  border:1px solid #bbb;
-  border-radius:5px;
+ width:100%;padding:13px;border:1px solid #bbb;border-radius:5px
 }
-
 .login-btn{
-  width:100%;
-  margin-top:22px;
-  padding:14px;
-  border:0;
-  border-radius:5px;
-  background:#f5c400;
-  color:#111;
-  font-weight:bold;
-  cursor:pointer;
+ width:100%;margin-top:22px;padding:14px;border:0;border-radius:5px;
+ background:#f5c400;font-weight:bold;cursor:pointer
 }
+.login-note{text-align:center;font-size:12px;color:#777;margin-top:16px}
 
-.login-note{
-  font-size:12px;
-  color:#777;
-  text-align:center;
-  margin-top:16px;
-}
-
-.app{
-  display:none;
-  min-height:100vh;
-}
-
+.app{display:none;min-height:100vh}
 .top{
-  height:65px;
-  background:#111;
-  color:white;
-  display:flex;
-  align-items:center;
-  padding:0 20px;
-  border-bottom:5px solid #f5c400;
+ height:64px;background:#111;color:#fff;display:flex;
+ align-items:center;padding:0 20px;border-bottom:5px solid #f5c400
 }
-
-.logo{
-  font-size:21px;
-  font-weight:bold;
-}
-
-.top-spacer{
-  flex:1;
-}
-
-.user{
-  font-size:14px;
-}
+.logo{font-size:21px;font-weight:bold}
+.spacer{flex:1}
+.user{font-size:14px}
 
 .menu-bar{
-  background:white;
-  border-bottom:1px solid #d5d5d5;
-  display:flex;
-  overflow-x:auto;
-  white-space:nowrap;
-  padding:0 10px;
-  box-shadow:0 2px 5px #00000012;
+ background:#fff;border-bottom:1px solid #ddd;
+ display:flex;overflow-x:auto;white-space:nowrap;
+ padding:0 10px;box-shadow:0 2px 5px #0001
 }
-
 .menu-bar button{
-  border:0;
-  background:white;
-  color:#222;
-  padding:16px 18px;
-  font-weight:bold;
-  cursor:pointer;
-  border-bottom:4px solid transparent;
+ border:0;background:#fff;padding:16px 18px;
+ font-weight:bold;cursor:pointer;border-bottom:4px solid transparent
 }
-
 .menu-bar button:hover,
 .menu-bar button.active{
-  background:#fffbea;
-  border-bottom-color:#f5c400;
+ background:#fffbea;border-bottom-color:#f5c400
 }
 
-.main{
-  padding:25px;
-  max-width:1400px;
-  margin:auto;
-}
+.main{padding:25px;max-width:1400px;margin:auto}
 
 .page-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:20px;
+ display:flex;justify-content:space-between;
+ align-items:center;margin-bottom:20px
 }
-
-.page-title h1{
-  margin:0;
-}
+.page-title h1{margin:0}
 
 .cards{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-  margin-bottom:25px;
+ display:grid;grid-template-columns:repeat(4,1fr);
+ gap:16px;margin-bottom:25px
 }
-
 .card{
-  background:white;
-  border:1px solid #ddd;
-  border-radius:7px;
-  padding:18px;
+ background:#fff;border:1px solid #ddd;
+ border-radius:7px;padding:18px
 }
-
-.big{
-  font-size:28px;
-  font-weight:bold;
-}
+.big{font-size:28px;font-weight:bold}
 
 .course-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
+ display:grid;grid-template-columns:repeat(2,1fr);gap:18px
 }
-
 .course{
-  background:white;
-  border:1px solid #ddd;
-  border-top:6px solid #f5c400;
-  border-radius:7px;
-  padding:20px;
-  cursor:pointer;
-  transition:.15s;
+ background:#fff;border:1px solid #ddd;
+ border-top:6px solid #f5c400;border-radius:7px;
+ padding:20px;cursor:pointer
 }
-
-.course:hover{
-  transform:translateY(-2px);
-  box-shadow:0 5px 15px #00000015;
-}
-
-.course h2{
-  margin:0 0 7px;
-}
-
-.course p{
-  color:#666;
-}
-
-.grade{
-  font-size:25px;
-  font-weight:bold;
-  margin-top:12px;
-}
+.course:hover{box-shadow:0 5px 15px #0002}
+.course h2{margin:0 0 7px}
+.course p{color:#666}
+.grade{font-size:25px;font-weight:bold;margin-top:12px}
 
 .table-wrap{
-  overflow-x:auto;
-  background:white;
-  border:1px solid #ddd;
-  border-radius:7px;
+ overflow-x:auto;background:#fff;border:1px solid #ddd;
+ border-radius:7px
 }
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:650px;
-}
-
-th,td{
-  padding:14px;
-  text-align:left;
-  border-bottom:1px solid #e5e5e5;
-}
-
-th{
-  background:#111;
-  color:white;
-}
-
-tr.clickable{
-  cursor:pointer;
-}
-
-tr.clickable:hover{
-  background:#fffbea;
-}
+table{width:100%;border-collapse:collapse;min-width:650px}
+th,td{padding:14px;text-align:left;border-bottom:1px solid #e5e5e5}
+th{background:#111;color:#fff}
+tr.clickable{cursor:pointer}
+tr.clickable:hover{background:#fffbea}
 
 .tabs{
-  display:flex;
-  gap:3px;
-  border-bottom:1px solid #ccc;
-  margin-bottom:18px;
-  overflow-x:auto;
+ display:flex;gap:3px;border-bottom:1px solid #ccc;
+ margin-bottom:18px;overflow-x:auto
 }
-
 .tab{
-  border:0;
-  background:#eee;
-  padding:12px 17px;
-  cursor:pointer;
-  white-space:nowrap;
+ border:0;background:#eee;padding:12px 17px;
+ cursor:pointer;white-space:nowrap
 }
-
-.tab.active{
-  background:#f5c400;
-  font-weight:bold;
-}
+.tab.active{background:#f5c400;font-weight:bold}
 
 .panel{
-  background:white;
-  border:1px solid #ddd;
-  border-radius:7px;
-  padding:20px;
-  margin-bottom:16px;
+ background:#fff;border:1px solid #ddd;
+ border-radius:7px;padding:20px;margin-bottom:16px
 }
-
 .notice{
-  background:#fffbea;
-  border-left:5px solid #f5c400;
-  padding:15px;
-  margin-bottom:18px;
+ background:#fffbea;border-left:5px solid #f5c400;
+ padding:15px;margin-bottom:18px
 }
-
 .list-item{
-  padding:15px 0;
-  border-bottom:1px solid #eee;
+ padding:15px 0;border-bottom:1px solid #eee
 }
-
-.list-item:last-child{
-  border-bottom:0;
-}
+.list-item:last-child{border-bottom:0}
 
 .badge{
-  display:inline-block;
-  padding:5px 9px;
-  border-radius:15px;
-  background:#e8f6e8;
-  color:#246b24;
-  font-size:12px;
-  font-weight:bold;
+ display:inline-block;padding:5px 9px;border-radius:15px;
+ background:#e8f6e8;color:#246b24;font-size:12px;font-weight:bold
 }
-
-.not-graded{
-  color:#777;
-  font-style:italic;
-}
-
+.not-graded{color:#777;font-style:italic}
 .back{
-  border:0;
-  background:#111;
-  color:white;
-  padding:10px 15px;
-  border-radius:5px;
-  cursor:pointer;
+ border:0;background:#111;color:#fff;
+ padding:10px 15px;border-radius:5px;cursor:pointer
 }
-
 .message{
-  background:white;
-  border:1px solid #ddd;
-  border-radius:7px;
-  padding:17px;
-  margin-bottom:12px;
+ background:#fff;border:1px solid #ddd;
+ border-radius:7px;padding:17px;margin-bottom:12px
 }
 
 @media(max-width:800px){
-
-  .logo{
-    font-size:18px;
-  }
-
-  .user{
-    display:none;
-  }
-
-  .menu-bar button{
-    padding:13px 14px;
-    font-size:13px;
-  }
-
-  .main{
-    padding:16px;
-  }
-
-  .cards{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .course-grid{
-    grid-template-columns:1fr;
-  }
+ .user{display:none}
+ .menu-bar button{padding:13px 14px;font-size:13px}
+ .main{padding:16px}
+ .cards{grid-template-columns:repeat(2,1fr)}
+ .course-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -359,105 +152,86 @@ tr.clickable:hover{
 
 <div id="login" class="login">
 
-  <div class="login-box">
+<div class="login-box">
 
-    <div class="login-head">
-      <h1>Student Portal</h1>
-      <p>Sign in to continue</p>
-    </div>
+<div class="login-head">
+<h1>Student Portal</h1>
+<p>Sign in to continue</p>
+</div>
 
-    <form class="login-form" onsubmit="login(event)">
+<form class="login-form" onsubmit="login(event)">
 
-      <label>Username</label>
+<label>Username</label>
+<input id="username" type="text" placeholder="Username" required>
 
-      <input
-        id="username"
-        type="text"
-        placeholder="Username"
-        required
-      >
+<label>Password</label>
+<input id="password" type="password" placeholder="Password" required>
 
-      <label>Password</label>
+<button class="login-btn" type="submit">
+Sign In
+</button>
 
-      <input
-        id="password"
-        type="password"
-        placeholder="Password"
-        required
-      >
+<div class="login-note">
+Enter any username and password to continue.
+</div>
 
-      <button class="login-btn" type="submit">
-        Sign In
-      </button>
-
-      <div class="login-note">
-        Enter any username and password to continue.
-      </div>
-
-    </form>
-
-  </div>
-
+</form>
+</div>
 </div>
 
 
-<!-- PORTAL -->
+<!-- WEBSITE -->
 
 <div id="app" class="app">
 
 <header class="top">
 
-  <div class="logo">
-    BLACKBOARD
-  </div>
+<div class="logo">BLACKBOARD</div>
 
-  <div class="top-spacer"></div>
+<div class="spacer"></div>
 
-  <div class="user">
-    Student Account
-  </div>
+<div class="user">Student Account</div>
 
 </header>
 
 
-<!-- MENU -->
+<!-- MENU BAR -->
 
 <nav class="menu-bar">
 
-  <button onclick="showPage('dashboard')" id="nav-dashboard">
-    Dashboard
-  </button>
+<button onclick="showPage('dashboard')" id="nav-dashboard">
+Dashboard
+</button>
 
-  <button onclick="showPage('courses')" id="nav-courses">
-    Courses
-  </button>
+<button onclick="showPage('courses')" id="nav-courses">
+Courses
+</button>
 
-  <button onclick="showPage('assignments')" id="nav-assignments">
-    Assignments
-  </button>
+<button onclick="showPage('assignments')" id="nav-assignments">
+Assignments
+</button>
 
-  <button onclick="showPage('grades')" id="nav-grades">
-    Grades
-  </button>
+<button onclick="showPage('grades')" id="nav-grades">
+Grades
+</button>
 
-  <button onclick="showPage('calendar')" id="nav-calendar">
-    Calendar
-  </button>
+<button onclick="showPage('calendar')" id="nav-calendar">
+Calendar
+</button>
 
-  <button onclick="showPage('messages')" id="nav-messages">
-    Messages
-  </button>
+<button onclick="showPage('messages')" id="nav-messages">
+Messages
+</button>
 
-  <button onclick="showPage('discussions')" id="nav-discussions">
-    Discussions
-  </button>
+<button onclick="showPage('discussions')" id="nav-discussions">
+Discussions
+</button>
 
-  <button onclick="showPage('profile')" id="nav-profile">
-    Profile
-  </button>
+<button onclick="showPage('profile')" id="nav-profile">
+Profile
+</button>
 
 </nav>
-
 
 <main id="main" class="main"></main>
 
@@ -470,22 +244,23 @@ tr.clickable:hover{
    COURSES
 ========================= */
 
-const courses = [
+const courses=[
 
 {
 id:"engl",
 code:"ENGL 1102",
 name:"English Composition II",
-grade:92.4,
+grade:null,
 
 assignments:[
 
-["Narrative Writing Workshop",88.0,"Sep 7"],
-["Rhetorical Analysis",94.5,"Sep 14"],
-["Source Evaluation Exercise",91.0,"Sep 21"],
-["Argument Essay Draft",96.0,"Sep 25"],
-["Citation Practice",89.5,"Sep 28"],
-["Research Proposal",93.0,"Oct 2"],
+["Narrative Writing Workshop",88,"Sep 7"],
+["Rhetorical Analysis",94,"Sep 14"],
+["Source Evaluation Exercise",91,"Sep 21"],
+["Argument Essay Draft",96,"Sep 25"],
+["Citation Practice",89,"Sep 28"],
+
+["Research Proposal",null,"Oct 2"],
 ["Literary Analysis",null,"Oct 5"],
 ["English Composition II Midterm",null,"Oct 11"],
 ["Peer Review Portfolio",null,"Oct 16"],
@@ -498,16 +273,17 @@ assignments:[
 id:"math",
 code:"MATH 1411",
 name:"College Algebra",
-grade:87.8,
+grade:null,
 
 assignments:[
 
-["Linear Equations Quiz",84.0,"Sep 6"],
-["Functions Homework",91.0,"Sep 12"],
-["Polynomial Practice",86.5,"Sep 18"],
-["Quadratic Equations Quiz",90.0,"Sep 23"],
-["Graphing Functions",83.5,"Sep 27"],
-["Exponential Functions",89.0,"Oct 1"],
+["Linear Equations Quiz",84,"Sep 6"],
+["Functions Homework",91,"Sep 12"],
+["Polynomial Practice",86,"Sep 18"],
+["Quadratic Equations Quiz",90,"Sep 23"],
+["Graphing Functions",83,"Sep 27"],
+
+["Exponential Functions",null,"Oct 1"],
 ["Systems of Equations",null,"Oct 5"],
 ["Math 1411 Midterm",null,"Oct 11"],
 ["Inequality Review",null,"Oct 15"],
@@ -520,16 +296,17 @@ assignments:[
 id:"psych",
 code:"PSYC 2112",
 name:"Psychology II",
-grade:90.0,
+grade:null,
 
 assignments:[
 
-["Learning & Conditioning Quiz",91.0,"Sep 6"],
-["Memory Reflection",88.5,"Sep 12"],
-["Development Study",93.0,"Sep 18"],
-["Personality Worksheet",90.0,"Sep 22"],
-["Social Psychology Quiz",86.0,"Sep 27"],
-["Emotion Discussion",95.0,"Oct 1"],
+["Learning & Conditioning Quiz",91,"Sep 6"],
+["Memory Reflection",88,"Sep 12"],
+["Development Study",93,"Sep 18"],
+["Personality Worksheet",90,"Sep 22"],
+["Social Psychology Quiz",86,"Sep 27"],
+
+["Emotion Discussion",null,"Oct 1"],
 ["Psychological Disorders Review",null,"Oct 5"],
 ["Psychology II Midterm",null,"Oct 11"],
 ["Research Methods Assignment",null,"Oct 16"],
@@ -542,16 +319,17 @@ assignments:[
 id:"gov",
 code:"POLS 1101",
 name:"American Government",
-grade:92.4,
+grade:null,
 
 assignments:[
 
-["Constitution Study Guide",94.0,"Sep 6"],
-["Federalism Quiz",89.0,"Sep 12"],
-["Civil Liberties Worksheet",96.0,"Sep 18"],
-["Congress Research",91.5,"Sep 23"],
-["Presidential Powers Quiz",88.0,"Sep 27"],
-["Supreme Court Case Brief",95.0,"Oct 1"],
+["Constitution Study Guide",94,"Sep 6"],
+["Federalism Quiz",89,"Sep 12"],
+["Civil Liberties Worksheet",96,"Sep 18"],
+["Congress Research",91,"Sep 23"],
+["Presidential Powers Quiz",88,"Sep 27"],
+
+["Supreme Court Case Brief",null,"Oct 1"],
 ["Voting & Elections Review",null,"Oct 5"],
 ["American Government Midterm",null,"Oct 11"],
 ["Political Parties Discussion",null,"Oct 16"],
@@ -559,7 +337,6 @@ assignments:[
 
 ]
 }
-
 ];
 
 
@@ -607,7 +384,6 @@ setActive(page);
 
 const main=document.getElementById("main");
 
-
 if(page==="dashboard")
 main.innerHTML=dashboardPage();
 
@@ -633,6 +409,34 @@ if(page==="profile")
 main.innerHTML=profilePage();
 
 window.scrollTo(0,0);
+
+}
+
+
+/* =========================
+   COURSE CARD
+========================= */
+
+function courseCard(course){
+
+return`
+
+<div class="course"
+onclick="showCourse('${course.id}')">
+
+<h2>${course.code}</h2>
+
+<p>${course.name}</p>
+
+<div class="grade">
+<span class="not-graded">-</span>
+</div>
+
+<p>Current Grade</p>
+
+</div>
+
+`;
 
 }
 
@@ -683,7 +487,9 @@ October 11.
 
 <div class="card">
 <h3>OVERALL</h3>
-<div class="big">90.7%</div>
+<div class="big">
+<span class="not-graded">-</span>
+</div>
 </div>
 
 </div>
@@ -714,23 +520,21 @@ Upcoming Assignments
 <th>Grade</th>
 </tr>
 
-
-${upcomingAssignments().map(item=>`
+${upcomingAssignments().map(x=>`
 
 <tr
 class="clickable"
 onclick="openAssignment(
-'${item.course.id}',
-${item.index}
-)"
->
+'${x.course.id}',
+${x.index}
+)">
 
 <td>
-<b>${item.assignment[0]}</b>
+<b>${x.assignment[0]}</b>
 </td>
 
 <td>
-${item.course.code}
+${x.course.code}
 </td>
 
 <td>
@@ -757,67 +561,6 @@ Not Graded
 
 
 /* =========================
-   COURSE CARD
-========================= */
-
-function courseCard(course){
-
-return`
-
-<div
-class="course"
-onclick="showCourse('${course.id}')"
->
-
-<h2>
-${course.code}
-</h2>
-
-<p>
-${course.name}
-</p>
-
-<div class="grade">
-${course.grade.toFixed(1)}%
-</div>
-
-<p>
-Current Grade
-</p>
-
-</div>
-
-`;
-
-}
-
-
-/* =========================
-   COURSES PAGE
-========================= */
-
-function coursesPage(){
-
-return`
-
-<div class="page-title">
-
-<h1>Courses</h1>
-
-</div>
-
-<div class="course-grid">
-
-${courses.map(courseCard).join("")}
-
-</div>
-
-`;
-
-}
-
-
-/* =========================
    UPCOMING
 ========================= */
 
@@ -826,13 +569,9 @@ function upcomingAssignments(){
 const names=[
 
 "English Composition II Midterm",
-
 "Math 1411 Midterm",
-
 "Psychology II Midterm",
-
 "American Government Midterm",
-
 "Research Paper"
 
 ];
@@ -846,13 +585,9 @@ course.assignments.forEach((assignment,index)=>{
 if(names.includes(assignment[0])){
 
 result.push({
-
 course:course,
-
 assignment:assignment,
-
 index:index
-
 });
 
 }
@@ -862,6 +597,29 @@ index:index
 });
 
 return result;
+
+}
+
+
+/* =========================
+   COURSES
+========================= */
+
+function coursesPage(){
+
+return`
+
+<div class="page-title">
+<h1>Courses</h1>
+</div>
+
+<div class="course-grid">
+
+${courses.map(courseCard).join("")}
+
+</div>
+
+`;
 
 }
 
@@ -879,13 +637,9 @@ courses.forEach(course=>{
 course.assignments.forEach((assignment,index)=>{
 
 all.push({
-
 course:course,
-
 assignment:assignment,
-
 index:index
-
 });
 
 });
@@ -908,8 +662,7 @@ return`
 
 <b>Upcoming:</b>
 
-Five assignments are due Sunday,
-October 11.
+October assignments have not been graded yet.
 
 </div>
 
@@ -928,36 +681,37 @@ October 11.
 </tr>
 
 
-${all.map(item=>`
+${all.map(x=>`
 
 <tr
 class="clickable"
 onclick="openAssignment(
-'${item.course.id}',
-${item.index}
-)"
->
+'${x.course.id}',
+${x.index}
+)">
 
 <td>
-<b>${item.assignment[0]}</b>
+<b>${x.assignment[0]}</b>
 </td>
 
 <td>
-${item.course.code}
+${x.course.code}
 </td>
 
 <td>
-${item.assignment[2]}
+${x.assignment[2]}
 </td>
 
 <td>
 
 ${
-item.assignment[1] === null
+x.assignment[1]===null
 
-? `<span class="not-graded">Not Graded</span>`
+? `<span class="not-graded">
+Not Graded
+</span>`
 
-: item.assignment[1].toFixed(1)+"%"
+: x.assignment[1]+"%"
 }
 
 </td>
@@ -990,6 +744,15 @@ return`
 </div>
 
 
+<div class="notice">
+
+Course averages have not been posted.
+
+Individual graded assignments are shown below.
+
+</div>
+
+
 <div class="table-wrap">
 
 <table>
@@ -998,7 +761,6 @@ return`
 
 <th>Course</th>
 <th>Current Grade</th>
-<th>Assignments</th>
 <th>Status</th>
 
 </tr>
@@ -1008,8 +770,7 @@ ${courses.map(course=>`
 
 <tr
 class="clickable"
-onclick="showCourse('${course.id}')"
->
+onclick="showCourse('${course.id}')">
 
 <td>
 
@@ -1023,14 +784,8 @@ ${course.name}
 
 <td>
 
-<b>
-${course.grade.toFixed(1)}%
-</b>
+<span class="not-graded">-</span>
 
-</td>
-
-<td>
-${course.assignments.length}
 </td>
 
 <td>
@@ -1063,37 +818,30 @@ function calendarPage(){
 return`
 
 <div class="page-title">
-
 <h1>Calendar</h1>
-
 </div>
 
 
 <div class="panel">
 
-<h2>
-Sunday, October 11
-</h2>
+<h2>Sunday, October 11</h2>
 
 
-${upcomingAssignments().map(item=>`
+${upcomingAssignments().map(x=>`
 
 <div
 class="list-item"
 onclick="openAssignment(
-'${item.course.id}',
-${item.index}
+'${x.course.id}',
+${x.index}
 )"
-style="cursor:pointer"
->
+style="cursor:pointer">
 
-<b>
-${item.assignment[0]}
-</b>
+<b>${x.assignment[0]}</b>
 
 <br>
 
-${item.course.code}
+${x.course.code}
 
 <br>
 
@@ -1119,17 +867,13 @@ function messagesPage(){
 return`
 
 <div class="page-title">
-
 <h1>Messages</h1>
-
 </div>
 
 
 <div class="message">
 
-<b>
-Professor Johnson
-</b>
+<b>Professor Johnson</b>
 
 <br><br>
 
@@ -1141,9 +885,7 @@ study guide before Sunday.
 
 <div class="message">
 
-<b>
-Professor Williams
-</b>
+<b>Professor Williams</b>
 
 <br><br>
 
@@ -1155,9 +897,7 @@ graded. Check the Grades section.
 
 <div class="message">
 
-<b>
-Student Services
-</b>
+<b>Student Services</b>
 
 <br><br>
 
@@ -1180,62 +920,48 @@ function discussionsPage(){
 return`
 
 <div class="page-title">
-
 <h1>Discussions</h1>
-
 </div>
 
 
 <div class="panel">
 
-<h3>
-Midterm Study Group
-</h3>
+<h3>Midterm Study Group</h3>
 
 <p>
 Students are sharing study tips
 and reviewing upcoming exams.
 </p>
 
-<b>
-18 replies
-</b>
+<b>18 replies</b>
 
 </div>
 
 
 <div class="panel">
 
-<h3>
-Research Paper Topics
-</h3>
+<h3>Research Paper Topics</h3>
 
 <p>
 Discuss possible topics and
 research sources with classmates.
 </p>
 
-<b>
-12 replies
-</b>
+<b>12 replies</b>
 
 </div>
 
 
 <div class="panel">
 
-<h3>
-Government & Civic Participation
-</h3>
+<h3>Government & Civic Participation</h3>
 
 <p>
 Weekly discussion about
 American government concepts.
 </p>
 
-<b>
-9 replies
-</b>
+<b>9 replies</b>
 
 </div>
 
@@ -1253,17 +979,13 @@ function profilePage(){
 return`
 
 <div class="page-title">
-
 <h1>Profile</h1>
-
 </div>
 
 
 <div class="panel">
 
-<h2>
-Student Profile
-</h2>
+<h2>Student Profile</h2>
 
 <p>
 <b>Name:</b>
@@ -1293,7 +1015,7 @@ Enrolled
 
 
 /* =========================
-   COURSE
+   COURSE PAGE
 ========================= */
 
 function showCourse(id){
@@ -1305,33 +1027,28 @@ document.getElementById("main").innerHTML=`
 
 <button
 class="back"
-onclick="showPage('courses')"
->
+onclick="showPage('courses')">
+
 ← Back to Courses
+
 </button>
 
 
 <div
 class="page-title"
-style="margin-top:18px"
->
+style="margin-top:18px">
 
 <div>
 
-<h1>
-${course.code}
-</h1>
+<h1>${course.code}</h1>
 
-<p>
-${course.name}
-</p>
+<p>${course.name}</p>
 
 </div>
 
-
 <div class="big">
 
-${course.grade.toFixed(1)}%
+<span class="not-graded">-</span>
 
 </div>
 
@@ -1346,11 +1063,9 @@ onclick="courseTab(
 '${course.id}',
 'home',
 this
-)"
->
+)">
 Home
 </button>
-
 
 <button
 class="tab"
@@ -1358,11 +1073,9 @@ onclick="courseTab(
 '${course.id}',
 'assignments',
 this
-)"
->
+)">
 Assignments
 </button>
-
 
 <button
 class="tab"
@@ -1370,11 +1083,9 @@ onclick="courseTab(
 '${course.id}',
 'grades',
 this
-)"
->
+)">
 Grades
 </button>
-
 
 <button
 class="tab"
@@ -1382,11 +1093,9 @@ onclick="courseTab(
 '${course.id}',
 'materials',
 this
-)"
->
+)">
 Materials
 </button>
-
 
 <button
 class="tab"
@@ -1394,8 +1103,7 @@ onclick="courseTab(
 '${course.id}',
 'announcements',
 this
-)"
->
+)">
 Announcements
 </button>
 
@@ -1423,9 +1131,7 @@ return`
 
 <div class="notice">
 
-<b>
-Course Announcement:
-</b>
+<b>Course Announcement:</b>
 
 Midterm materials are available.
 Review all instructions before
@@ -1436,14 +1142,11 @@ submitting your work.
 
 <div class="panel">
 
-<h2>
-Course Information
-</h2>
+<h2>Course Information</h2>
 
 <p>
 
-Welcome to
-${course.name}.
+Welcome to ${course.name}.
 
 Review assignments,
 course materials,
@@ -1457,21 +1160,16 @@ using the tabs above.
 
 <div class="panel">
 
-<h2>
-Upcoming Assignments
-</h2>
+<h2>Upcoming Assignments</h2>
 
 
 ${course.assignments
-.filter(a=>a[2].includes("Oct"))
-.slice(0,5)
+.filter(a=>a[2].startsWith("Oct"))
 .map(a=>`
 
 <div class="list-item">
 
-<b>
-${a[0]}
-</b>
+<b>${a[0]}</b>
 
 <br>
 
@@ -1509,22 +1207,19 @@ button.classList.add("active");
 
 const course=courses.find(c=>c.id===id);
 
-const content=document.getElementById(
-"courseContent"
-);
+const box=document.getElementById("courseContent");
 
 
 if(tab==="home"){
 
-content.innerHTML=
-courseHome(course);
+box.innerHTML=courseHome(course);
 
 }
 
 
 if(tab==="assignments"){
 
-content.innerHTML=`
+box.innerHTML=`
 
 <div class="table-wrap">
 
@@ -1532,38 +1227,24 @@ content.innerHTML=`
 
 <tr>
 
-<th>
-Assignment
-</th>
-
-<th>
-Due
-</th>
-
-<th>
-Grade
-</th>
+<th>Assignment</th>
+<th>Due</th>
+<th>Grade</th>
 
 </tr>
 
 
-${course.assignments.map(
-(a,index)=>`
+${course.assignments.map((a,index)=>`
 
 <tr
 class="clickable"
 onclick="openAssignment(
 '${course.id}',
 ${index}
-)"
->
+)">
 
 <td>
-
-<b>
-${a[0]}
-</b>
-
+<b>${a[0]}</b>
 </td>
 
 <td>
@@ -1579,7 +1260,7 @@ a[1]===null
 Not Graded
 </span>`
 
-: a[1].toFixed(1)+"%"
+: a[1]+"%"
 }
 
 </td>
@@ -1599,22 +1280,18 @@ Not Graded
 
 if(tab==="grades"){
 
-content.innerHTML=`
+box.innerHTML=`
 
 <div class="panel">
 
-<h2>
-Course Grade
-</h2>
+<h2>Course Grade</h2>
 
 <div class="big">
-
-${course.grade.toFixed(1)}%
-
+<span class="not-graded">-</span>
 </div>
 
 <p>
-Current course average
+Current course average is not posted.
 </p>
 
 </div>
@@ -1626,13 +1303,8 @@ Current course average
 
 <tr>
 
-<th>
-Assignment
-</th>
-
-<th>
-Grade
-</th>
+<th>Assignment</th>
+<th>Grade</th>
 
 </tr>
 
@@ -1654,7 +1326,7 @@ a[1]===null
 Not Graded
 </span>`
 
-: a[1].toFixed(1)+"%"
+: a[1]+"%"
 }
 
 </td>
@@ -1675,45 +1347,36 @@ Not Graded
 if(tab==="materials"){
 
 const materials=[
-
-"Course Syllabus",
+"Syllabus",
 "Lecture Notes",
 "Study Guide",
 "Practice Questions",
 "Reading Materials",
 "Midterm Review"
-
 ];
 
 
-content.innerHTML=`
+box.innerHTML=`
 
 <div class="panel">
 
-<h2>
-Course Materials
-</h2>
+<h2>Course Materials</h2>
 
 
-${materials.map(material=>`
+${materials.map(x=>`
 
 <div
 class="list-item"
-onclick="openMaterial('${material}')"
-style="cursor:pointer"
->
+onclick="openMaterial('${x}')"
+style="cursor:pointer">
 
 📄
 
-<b>
-${material}
-</b>
+<b>${x}</b>
 
 <br>
 
-<span>
 Open material →
-</span>
 
 </div>
 
@@ -1728,20 +1391,16 @@ Open material →
 
 if(tab==="announcements"){
 
-content.innerHTML=`
+box.innerHTML=`
 
 <div class="panel">
 
-<h2>
-Announcements
-</h2>
+<h2>Announcements</h2>
 
 
 <div class="list-item">
 
-<b>
-Midterm Reminder
-</b>
+<b>Midterm Reminder</b>
 
 <br>
 
@@ -1753,9 +1412,7 @@ by Sunday at 11:59 PM.
 
 <div class="list-item">
 
-<b>
-Week 8 Update
-</b>
+<b>Week 8 Update</b>
 
 <br>
 
@@ -1767,9 +1424,7 @@ been posted.
 
 <div class="list-item">
 
-<b>
-Grade Update
-</b>
+<b>Grade Update</b>
 
 <br>
 
@@ -1798,30 +1453,31 @@ const course=courses.find(c=>c.id===id);
 const assignment=course.assignments[index];
 
 
-const gradeDisplay =
+const grade=
+
 assignment[1]===null
 
 ? `<span class="not-graded">
 Not Graded
 </span>`
 
-: assignment[1].toFixed(1)+"%";
+: assignment[1]+"%";
 
 
 document.getElementById("main").innerHTML=`
 
 <button
 class="back"
-onclick="showCourse('${course.id}')"
->
+onclick="showCourse('${course.id}')">
+
 ← Back to ${course.code}
+
 </button>
 
 
 <div
 class="panel"
-style="margin-top:18px"
->
+style="margin-top:18px">
 
 <h1>
 ${assignment[0]}
@@ -1852,24 +1508,18 @@ at 11:59 PM
 <hr>
 
 
-<h2>
-Assignment Details
-</h2>
-
+<h2>Assignment Details</h2>
 
 <p>
 
-Complete the assigned course
-work and submit your response
-before the due date.
+Complete the assigned course work
+and submit your response before
+the due date.
 
 </p>
 
 
-<h3>
-Instructions
-</h3>
-
+<h3>Instructions</h3>
 
 <p>
 
@@ -1881,14 +1531,11 @@ through the assignment area.
 </p>
 
 
-<h3>
-Grade
-</h3>
-
+<h3>Grade</h3>
 
 <div class="big">
 
-${gradeDisplay}
+${grade}
 
 </div>
 
@@ -1912,8 +1559,6 @@ Graded
 
 `;
 
-window.scrollTo(0,0);
-
 }
 
 
@@ -1927,21 +1572,18 @@ document.getElementById("main").innerHTML=`
 
 <button
 class="back"
-onclick="showPage('courses')"
->
+onclick="showPage('courses')">
+
 ← Back to Courses
+
 </button>
 
 
 <div
 class="panel"
-style="margin-top:18px"
->
+style="margin-top:18px">
 
-<h1>
-${name}
-</h1>
-
+<h1>${name}</h1>
 
 <p>
 
@@ -1953,10 +1595,7 @@ current unit.
 </p>
 
 
-<h3>
-Study Notes
-</h3>
-
+<h3>Study Notes</h3>
 
 <p>
 
@@ -1968,10 +1607,7 @@ assignments and assessments.
 </p>
 
 
-<h3>
-Review
-</h3>
-
+<h3>Review</h3>
 
 <p>
 
@@ -1984,14 +1620,10 @@ completing your next assignment.
 
 </div>
 
-`;
-
 }
 
 
-/* =========================
-   START
-========================= */
+/* START */
 
 showPage("dashboard");
 
